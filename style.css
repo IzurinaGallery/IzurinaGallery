@@ -109,7 +109,7 @@ header ul li a.active
     display: grid;
     gap: 15px;
     font-size: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     overflow-x: auto;
     scrollbar-width: none;
     grid-template-columns: repeat(28, 1fr);
