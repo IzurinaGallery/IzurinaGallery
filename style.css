@@ -107,7 +107,7 @@ header ul li a.active
 .slider-wrapper .image-list
 {
     display: grid;
-    gap: 10px;
+    gap: 15px;
     font-size: 0;
     margin-bottom: 30px;
     overflow-x: auto;
