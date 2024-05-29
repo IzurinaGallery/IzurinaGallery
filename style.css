@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 150vh;
+    min-height: 100vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
@@ -283,10 +283,6 @@ header ul li a.active
 /*System for mobile and tablets */
 @media (max-width: 1023px)
 {
-    .body
-    {
-        min-height: 1500vh;
-    }
     .slider-wrapper .slide-button
     {
         display: none!important;
