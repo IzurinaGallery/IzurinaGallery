@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 69vh;
+    min-height: 150vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
