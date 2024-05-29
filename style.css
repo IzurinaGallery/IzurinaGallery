@@ -303,6 +303,13 @@ header ul li a.active
     }
     
 }
+
+@media (max-width: 1280px)
+{
+    .body
+    {
+        min-height: 150vh;
+    }
 *,
 *::before,
 *::after {
