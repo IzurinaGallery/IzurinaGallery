@@ -282,6 +282,34 @@ header ul li a.active
 
 /*System for mobile and tablets */
 
+@media (max-width: 1290px)
+{
+    .container
+    {
+        max-width: 1200px;
+        width: 90%;
+    }
+    .slider-wrapper .slide-button
+    {
+        display: none!important;
+    }
+    .slider-wrapper .image-list
+    {
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .slider-wrapper .image-list .image-item
+    {
+        width: 120px;
+        height: 150px;
+    }
+    .slider-scrollbar .scrollbar-thumb
+    {
+        width: 30%;
+    }
+    
+}
+
 @media (max-width: 1200px)
 {
     .container
