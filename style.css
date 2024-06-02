@@ -323,7 +323,8 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 500px;
+        width: 400px;
+        high: 500px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
