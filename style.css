@@ -338,6 +338,12 @@ header ul li a.active
 
 @media (max-width: 768px)
 {
+    .container
+    {
+        max-width: 1500px;
+        max-heigh: 1000px;
+        width: 95%;
+    }
     .slider-wrapper .slide-button
     {
         display: none!important;
