@@ -279,7 +279,11 @@ header ul li a.active
     color: #fff;
     text-align: center;
 }
-
+.body
+{
+    top: -webkit-calc(100% - 80px); /* Safari 6, Chrome 19-25 - no viewport units allowed */
+    top: calc(100% - 80px); /* other modern browsers */
+}
 /*System for mobile and tablets */
 
 @media (max-width: 1290px)
