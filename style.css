@@ -362,8 +362,4 @@ header ul li a.active
     {
         width: 30%;
     }
-    body
-    {
-    min-height: 100vh;
-    }
 }
