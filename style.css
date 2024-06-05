@@ -20,7 +20,7 @@ body
 }
 header
 {
-    position: fixed;
+    position: sticky;
     top: 0; left: 0; right: 0;
     width: 100%;
     background: #0B244E;
@@ -69,6 +69,7 @@ header ul li a.active
 .container
 {
     max-width: 1500px;
+    max-height: 1500px;
     width: 95%;
 }
 .slider-wrapper
@@ -328,8 +329,8 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 150px;
-        height: 180px;
+        width: 325px;
+        height: 400px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
@@ -339,6 +340,7 @@ header ul li a.active
 }
 @media (max-width: 1024px)
 {
+    
     .container
     {
         max-width: 1000px;
@@ -355,11 +357,12 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 250px;
-        height: 280px;
+        width: 325px;
+        height: 400px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
-        width: 30%;
+        width: 20%;
     }
+    
 }
