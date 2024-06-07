@@ -270,9 +270,164 @@ header ul li a.active
 {
     color: #ff0000;
 }
+.timeline
+{
+    position: relative;
+    max-width: 450px;
+    margin: 100px auto;
+}
+.containertimeline
+{
+    padding: 10px 50px;
+    position: relative;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+@keyframes movedown
+{
+    0%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.containertimeline:nth-child(1)
+{
+    animation-delay: 0s;
+}
+.containertimeline:nth-child(2)
+{
+    animation-delay: 0.5s;
+}
+.containertimeline:nth-child(3)
+{
+    animation-delay: 1s;
+}
+.containertimeline:nth-child(4)
+{
+    animation-delay: 1.5s;
+}
+.containertimeline:nth-child(5)
+{
+    animation-delay: 2s;
+}
+.containertimeline:nth-child(6)
+{
+    animation-delay: 2.5s;
+}
+.containertimeline:nth-child(7)
+{
+    animation-delay: 3s;
+}
+.containertimeline:nth-child(8)
+{
+    animation-delay: 3.5s;
+}
+.containertimeline:nth-child(9)
+{
+    animation-delay: 4s;
+}
+.containertimeline:nth-child(10)
+{
+    animation-delay: 4.5s;
+}
+.containertimeline:nth-child(11)
+{
+    animation-delay: 5s;
+}
+.containertimeline:nth-child(12)
+{
+    animation-delay: 5.5s;
+}
+.text-box
+{
+    padding: 40px 40px;
+    background: #fff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+.left-container
+{
+    right: 50%;
+}
+.right-container
+{
+    left: 50%;
+}
+.containertimeline img
+{
+    position: absolute;
+    width: 40px;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+.right-container img
+{
+    left: -20px;
+}
+.timeline::after
+{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    animation: moveline 6s linear forwards;
+}
+@keyframes moveline
+{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
+.text-box h4
+{
+    font-weight: 600;
+}
+.text-box small
+{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.left-container-arrow
+{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #fff;
+    right: -15px;
+}
+.right-container-arrow
+{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    left: -15px;
+}
 .footer
 {
-    position: fixed;
+    position: sticky;
     left: 0;
     bottom: 0;
     width: 100%;
