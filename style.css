@@ -270,6 +270,8 @@ header ul li a.active
 {
     color: #ff0000;
 }
+
+/*timeline*/
 .timeline
 {
     position: relative;
@@ -348,7 +350,7 @@ header ul li a.active
     background: #fff;
     position: relative;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 20px;
 }
 .left-container
 {
@@ -425,6 +427,9 @@ header ul li a.active
     border-right: 15px solid #fff;
     left: -15px;
 }
+
+/*footer*/
+
 .footer
 {
     position: sticky;
@@ -435,6 +440,8 @@ header ul li a.active
     color: #fff;
     text-align: center;
 }
+
+/*profile details*/
 
   .right-containerr {
     background: #0B244E; 
