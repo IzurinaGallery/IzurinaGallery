@@ -282,6 +282,67 @@ header ul li a.active
 {
     padding: 10px 50px;
     position: relative;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+@keyframes movedown
+{
+    0%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.containertimeline:nth-child(1)
+{
+    animation-delay: 0s;
+}
+.containertimeline:nth-child(2)
+{
+    animation-delay: 0.5s;
+}
+.containertimeline:nth-child(3)
+{
+    animation-delay: 1s;
+}
+.containertimeline:nth-child(4)
+{
+    animation-delay: 1.5s;
+}
+.containertimeline:nth-child(5)
+{
+    animation-delay: 2s;
+}
+.containertimeline:nth-child(6)
+{
+    animation-delay: 2.5s;
+}
+.containertimeline:nth-child(7)
+{
+    animation-delay: 3s;
+}
+.containertimeline:nth-child(8)
+{
+    animation-delay: 3.5s;
+}
+.containertimeline:nth-child(9)
+{
+    animation-delay: 4s;
+}
+.containertimeline:nth-child(10)
+{
+    animation-delay: 4.5s;
+}
+.containertimeline:nth-child(11)
+{
+    animation-delay: 5s;
+}
+.containertimeline:nth-child(12)
+{
+    animation-delay: 5.5s;
 }
 .text-box
 {
@@ -322,8 +383,17 @@ header ul li a.active
     left: 50%;
     margin-left: -3px;
     z-index: -1;
+    animation: moveline 6s linear forwards;
 }
-
+@keyframes moveline
+{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
 .text-box h4
 {
     font-weight: 600;
