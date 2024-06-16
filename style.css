@@ -428,14 +428,6 @@ header ul li a.active
     left: -15px;
 }
 
-/*schedule*/
-
-.schedul
-{
-    position: relative;
-    z-index: -2;
-}
-
 /*footer*/
 
 .footer
