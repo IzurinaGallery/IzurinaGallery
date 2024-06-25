@@ -272,108 +272,243 @@ header ul li a.active
 }
 
 /*timeline*/
-.timeline
-{
-    position: relative;
-    max-width: 450px;
-    margin: 100px auto;
-}
-.containertimeline
-{
-    padding: 10px 50px;
-    position: relative;
-    animation: movedown 0s linear forwards;
-    opacity: 0;
-}
-@keyframes movedown
-{
-    0%{
-        opacity: 1;
-        transform: translateY(-30px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-.containertimeline:nth-child(1)
-{
-    animation-delay: 0s;
+:root {
+  --white: #fff;
+  --black: #323135;
+  --crystal: #a8dadd;
+  --columbia-blue: #cee9e4;
+  --midnight-green: #01565b;
+  --yellow: #e5f33d;
+  --timeline-gradient: rgba(206, 233, 228, 1) 0%, rgba(206, 233, 228, 1) 50%,
+    rgba(206, 233, 228, 0) 100%;
 }
 
-.text-box
-{
-    padding: 20px 20px;
-    background: #fff;
-    position: relative;
-    border-radius: 6px;
-    font-size: 20px;
+
+
+
+/* .section SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.section {
+  padding: 50px 0;
 }
-.left-container
-{
-    right: 50%;
+
+.section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
-.right-container
-{
-    left: 50%;
+
+.section h1 {
+  font-size: 2.5rem;
+  line-height: 1.25;
 }
-.containertimeline img
-{
-    position: absolute;
-    width: 40px;
-    right: -20px;
-    top: 32px;
-    z-index: 10;
+
+.section h2 {
+  font-size: 1.3rem;
 }
-.right-container img
-{
-    left: -20px;
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+  position: relative;
+  white-space: nowrap;
+  max-width: 1400px;
+  padding: 0 10px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px auto;
+  grid-gap: 20px;
 }
-.timeline::after
-{
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 100%;
-    background: #fff;
-    top: 10px;
-    left: 50%;
-    margin-left: -3px;
-    z-index: -1;
-    animation: moveline 0s linear forwards;
+
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  width: 100px;
+  z-index: 2;
 }
-.text-box h4
-{
-    font-weight: 600;
+
+.timeline::after {
+  right: 0;
 }
-.text-box small
-{
-    display: inline-block;
-    margin-bottom: 15px;
+
+.timeline::before {
+  left: 340px;
 }
-.left-container-arrow
-{
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: 28px;
-    z-index: 1;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid #fff;
-    right: -15px;
+
+.timeline .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 40px;
+  color: #fff;
+  background: #0B244E;
+  white-space: normal;
+  border-radius: 10px;
 }
-.right-container-arrow
-{
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: 28px;
-    z-index: 1;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid #fff;
-    left: -15px;
+
+.timeline .info p {
+  margin-top: 10px;
+  color: #A7C8FF;
+}
+
+.timeline .info a {
+  text-decoration: none;
+}
+
+.timeline ol::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline ol::-webkit-scrollbar-thumb,
+.timeline ol::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.timeline ol::-webkit-scrollbar-thumb {
+  background: #0B244E;
+}
+
+.timeline ol::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.timeline ol {
+  font-size: 0;
+  padding: 300px 0;
+  transition: all 1s;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: #0B244E #fff;
+}
+
+.timeline ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 160px;
+  height: 5px;
+  background: var(--white);
+  scroll-snap-align: start;
+}
+
+.timeline ol li:last-child {
+  width: 340px;
+}
+
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #0B244E;
+  z-index: 1;
+}
+
+.timeline ol li div {
+  position: absolute;
+  left: calc(100% + 7px);
+  width: 280px;
+  padding: 15px;
+  font-size: 1rem;
+  white-space: normal;
+  color: var(--black);
+  background: var(--white);
+  border-radius: 0 10px 10px 10px;
+}
+
+.timeline ol li div::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+  top: -16px;
+  transform: translateY(-100%);
+  border-radius: 10px 10px 10px 0;
+}
+
+.timeline ol li:nth-child(odd) div::before {
+  top: 100%;
+  border-width: 8px 8px 0 0;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+  top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent var(--white);
+}
+
+.timeline time {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #0B244E;
+}
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 800px) {
+  .timeline {
+    display: block;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    width: 50px;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline .info {
+    display: none;
+  }
+}
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 2;
+  color: var(--black);
+  background: var(--columbia-blue);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
 }
 
 /*Event Card*/
@@ -473,7 +608,7 @@ article {
     margin-inline: auto;
     padding-inline: 24px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 25px;
   }
   
   @media screen and (max-width: 960px) {
@@ -680,3 +815,5 @@ article {
     }
     
 }
+
+/*Work column*/
