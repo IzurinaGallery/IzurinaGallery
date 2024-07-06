@@ -66,6 +66,9 @@ header ul li a.active
     background: #fff;
     color: #0B244E;
 }
+h1{
+    color: #0B244E;
+}
 /*SocialMediaButton*/
 .icon
 {
@@ -474,3 +477,220 @@ article {
     
 }
 
+
+/*slide event*/
+.container
+{
+    max-width: 1500px;
+    max-height: 1500px;
+    width: 95%;
+}
+.slider-wrapper
+{
+    position: relative;
+}
+.slider-wrapper .slide-button
+{
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #0B244E;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+.slider-wrapper .slide-button:hover
+{
+    background: #fff;
+    color: #0B244E;
+}
+.slider-wrapper .slide-button#prev-slide
+{
+    left: -20px;
+    display: none;
+}
+.slider-wrapper .slide-button#next-slide
+{
+    right: -20px;
+}
+.slider-wrapper .image-list
+{
+    display: grid;
+    gap: 10px;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(28, 1fr);
+}
+.slider-wrapper .image-list::-webkit-scrollbar
+{
+    display: none;
+}
+.slider-wrapper .image-list .image-item
+{
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+}
+.container .slider-scrollbar
+{
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.slider-scrollbar .scrollbar-track
+{
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    border-radius: 4px;
+    align-items: center;
+
+}
+.slider-scrollbar:hover .scrollbar-track
+{
+    height: 4px;
+}
+.slider-scrollbar .scrollbar-thumb
+{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: #0B244E;
+    border-radius: inherit;
+    cursor: grab;
+}
+.slider-scrollbar .scrollbar-thumb:active
+{
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+.slider-scrollbar .scrollbar-thumb::after
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+.icon
+{
+    color: #0B244E;
+}
+.button a
+{
+    text-decoration: none;
+}
+
+/*calendar*/
+ 
+  .calendar-container {
+    height: auto;
+    width: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+    padding: 20px 20px;
+  }
+  
+  .calendar-week {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-inline-start: 0px;
+    gap: 15px;
+  }
+  
+  .calendar-week-day {
+    max-width: 57.1px;
+    width: 100%;
+    text-align: center;
+    color: #525659;
+  }
+  
+  .calendar-days {
+    margin-top: 30px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding-inline-start: 0px;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    color: #525659;
+    padding: 10px;
+  }
+  
+  .calendar-month-arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .calendar-month-year-container {
+    padding: 10px 10px 20px 10px;
+    color: #525659;
+    cursor: pointer;
+  }
+  
+  .calendar-arrow-container {
+    margin-top: -5px;
+  }
+  
+  .calendar-left-arrow,
+  .calendar-right-arrow {
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #525659;
+  }
+  
+  .calendar-today-button {
+    margin-top: -10px;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #525659;
+    padding: 5px 10px;
+  }
+  
+  .calendar-today-button {
+    height: 35px;
+    margin-right: 10px;
+    background-color: #0B244E;
+    color: white;
+  }
+  
+  .calendar-months,
+  .calendar-years {
+    flex: 1;
+    border-radius: 10px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: #525659;
+    font-size: 15px;
+  }
+  
+  .calendar-day-active {
+    background-color: #0B244E;
+    color: white;
+    border-radius: 10%;
+  }
+  
