@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 500vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
@@ -231,7 +231,7 @@ header ul li a.active
     margin-bottom: 30px;
     overflow-x: auto;
     scrollbar-width: none;
-    grid-template-columns: repeat(28, 1fr);
+    grid-template-columns: repeat(10, 1fr);
 }
 .slider-wrapper .image-list::-webkit-scrollbar
 {
