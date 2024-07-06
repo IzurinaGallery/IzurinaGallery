@@ -184,7 +184,7 @@ header ul li a.active
 }
 /*calendar*/
 
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
 
 :root {
   --color-accent: #0B244E;
@@ -200,18 +200,6 @@ header ul li a.active
   --border-width: 1px;
   --border-radius: 15px;
   --spacing: 18px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #19181a;
-    --foreground-color: #282729;
-    --text-color: #c9c8cc;
-    --highlight-text-color: #f8f7fa;
-    --inactive-text-color: #68676a;
-    --btn-bg: #313133;
-    --box-shadow: #111111;
-  }
 }
 
 .card {
