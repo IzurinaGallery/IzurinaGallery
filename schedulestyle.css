@@ -378,8 +378,8 @@ header ul li a.active
 }
 .slider-wrapper .image-list .image-item
 {
-    width: 400px;
-    height: auto;
+    width: auto;
+    height: 400px;
     object-fit: cover;
 }
 .container .slider-scrollbar
