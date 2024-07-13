@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 100%;
+    min-height: 90vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
@@ -183,6 +183,9 @@ header ul li a.active
     text-align: center;
 }
 /*calendar*/
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
 :root {
   --color-accent: #0B244E;
   --background-color: #f8f7fa;
@@ -198,6 +201,8 @@ header ul li a.active
   --border-radius: 15px;
   --spacing: 18px;
 }
+
+
 
 .card {
   width: 316px;
@@ -422,14 +427,8 @@ header ul li a.active
     top: -10px;
     bottom: -10px;
 }
-.icon
-{
-    color: #0B244E;
-}
-.button a
-{
-    text-decoration: none;
-}
+
+
 /*System for mobile and tablets */
 
 @media (max-width: 1290px)
@@ -450,7 +449,7 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: auto;
+        width: 325px;
         height: 400px;
     }
     .slider-scrollbar .scrollbar-thumb
@@ -478,7 +477,7 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: auto;
+        width: 325px;
         height: 400px;
     }
     .slider-scrollbar .scrollbar-thumb
@@ -506,12 +505,11 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: auto;
+        width: 325px;
         height: 400px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
         width: 20%;
     }
-    
 }
