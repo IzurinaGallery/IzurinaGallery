@@ -450,7 +450,7 @@ header ul li a.active
     .slider-wrapper .image-list .image-item
     {
         width: 325px;
-        height: 400px;
+        height: auto;
     }
     .slider-scrollbar .scrollbar-thumb
     {
@@ -478,7 +478,7 @@ header ul li a.active
     .slider-wrapper .image-list .image-item
     {
         width: 325px;
-        height: 400px;
+        height: auto;
     }
     .slider-scrollbar .scrollbar-thumb
     {
@@ -506,7 +506,7 @@ header ul li a.active
     .slider-wrapper .image-list .image-item
     {
         width: 325px;
-        height: 400px;
+        height: auto;
     }
     .slider-scrollbar .scrollbar-thumb
     {
