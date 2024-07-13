@@ -449,8 +449,8 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 325px;
-        height: auto;
+        width: auto;
+        height: 325px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
@@ -477,8 +477,8 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 325px;
-        height: auto;
+        width: auto;
+        height: 325px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
@@ -505,8 +505,8 @@ header ul li a.active
     }
     .slider-wrapper .image-list .image-item
     {
-        width: 325px;
-        height: auto;
+        width: auto;
+        height: 325px;
     }
     .slider-scrollbar .scrollbar-thumb
     {
