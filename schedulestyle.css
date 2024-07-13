@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 92vh;
+    min-height: 100vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
@@ -183,9 +183,6 @@ header ul li a.active
     text-align: center;
 }
 /*calendar*/
-
-
-
 :root {
   --color-accent: #0B244E;
   --background-color: #f8f7fa;
