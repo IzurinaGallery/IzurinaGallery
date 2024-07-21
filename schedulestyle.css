@@ -14,7 +14,7 @@ body
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-height: 100%;
+    min-height: 100vh;
     background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
@@ -322,194 +322,170 @@ header ul li a.active
   box-shadow: 0px 0px 0px var(--box-shadow);
 }
 
-/*slide event*/
-.container
-{
-    max-width: 1500px;
-    max-height: 1500px;
-    width: 95%;
-}
-.slider-wrapper
-{
-    position: relative;
-}
-.slider-wrapper .slide-button
-{
-    position: absolute;
-    top: 50%;
-    height: 50px;
-    width: 50px;
-    color: #fff;
-    border: none;
-    outline: none;
-    background: #0B244E;
-    font-size: 2.2rem;
-    cursor: pointer;
-    border-radius: 50%;
-    transform: translateY(-50%);
-}
-.slider-wrapper .slide-button:hover
-{
-    background: #fff;
-    color: #0B244E;
-}
-.slider-wrapper .slide-button#prev-slide
-{
-    left: -20px;
-    display: none;
-}
-.slider-wrapper .slide-button#next-slide
-{
-    right: -20px;
-}
-.slider-wrapper .image-list
-{
-    display: grid;
-    gap: 10px;
-    font-size: 0;
-    margin-bottom: 30px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    grid-template-columns: repeat(10, 1fr);
-}
-.slider-wrapper .image-list::-webkit-scrollbar
-{
-    display: none;
-}
-.slider-wrapper .image-list .image-item
-{
-    width: auto;
-    height: 325px;
-    object-fit: cover;
-}
-.container .slider-scrollbar
-{
-    height: 24px;
-    width: 100%;
+
+
+/*event card*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  :root {
+    --purple: #A7C8FF;
+    --pink: hsl(0, 59%, 94%);
+    --light-bg: hsl(204, 37%, 92%);
+    --light-gray-bg: hsl(0, 0%, 94%);
+    --white: hsl(0, 0%, 100%);
+    --dark: hsl(0, 0%, 7%);
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  
+  
+  .description {
+    white-space: wrap;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .wrap {
     display: flex;
-    align-items: center;
-}
-.slider-scrollbar .scrollbar-track
-{
-    height: 2px;
-    width: 100%;
-    background: #fff;
+    justify-content: center;
+    align-items: stretch;
+    width: 80%;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
     position: relative;
-    border-radius: 4px;
+    padding: 24px;
+    background: #fff;
+  }
+  
+  .box-top {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  
+  .box-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+  
+  .title-flex {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-
-}
-.slider-scrollbar:hover .scrollbar-track
-{
-    height: 4px;
-}
-.slider-scrollbar .scrollbar-thumb
-{
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    background: #0B244E;
-    border-radius: inherit;
-    cursor: grab;
-}
-.slider-scrollbar .scrollbar-thumb:active
-{
-    cursor: grabbing;
-    height: 8px;
-    top: -2px;
-}
-.slider-scrollbar .scrollbar-thumb::after
-{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -10px;
-    bottom: -10px;
-}
-
-
-/*System for mobile and tablets */
-
-@media (max-width: 1290px)
-{
-    .container
-    {
-        max-width: 1200px;
-        width: 90%;
-    }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
-    }
-    .slider-wrapper .image-list
-    {
-        gap: 15px;
-        margin-bottom: 15px;
-    }
-    .slider-wrapper .image-list .image-item
-    {
-        width: auto;
-        height: 325px;
-    }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 30%;
+  }
+  
+  .box-title {
+    border-left: 3px solid var(--purple);
+    padding-left: 12px;
+  }
+  
+  .bttn {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    padding: 16px;
+    color: #000;
+    background: transparent;
+    box-shadow: 0px 0px 0px 1px black inset;
+    transition: background 0.4s ease;
+  }
+  
+  .bttn:hover {
+    background: var(--purple);
+  }
+  
+  .fill-one {
+    background: var(--light-bg);
+  }
+  
+  .fill-two {
+    background: var(--pink);
+  }
+  
+  /* RESPONSIVE QUERIES */
+  
+  @media (min-width: 320px) {
+    .title-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
     }
     
-}
+  }
+  
+  @media (min-width: 460px) {
+    .title-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+    }
+    
+  }
+  
+  @media (min-width: 640px) {
+    .box {
+      flex-basis: calc(50% - 12px);
+    }
+    .title-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+    }
 
-@media (max-width: 1200px)
-{
-    .container
-    {
-        max-width: 1100px;
-        width: 90%;
+  }
+  
+  @media (min-width: 840px) {
+    .title-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
     }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
+
+  }
+  
+  @media (min-width: 1024px) {
+    .box {
+      flex-basis: calc(33.3% - 16px);
     }
-    .slider-wrapper .image-list
-    {
-        gap: 10px;
-        margin-bottom: 15px;
+    .title-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
     }
-    .slider-wrapper .image-list .image-item
-    {
-        width: auto;
-        height: 325px;
+  }
+  
+  @media (min-width: 1100px) {
+    .box {
+      flex-basis: calc(25% - 18px);
     }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 30%;
-    }
-    
-}
-@media (max-width: 1024px)
-{
-    
-    .container
-    {
-        max-width: 1000px;
-        width: 90%;
-    }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
-    }
-    .slider-wrapper .image-list
-    {
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    .slider-wrapper .image-list .image-item
-    {
-        width: auto;
-        height: 325px;
-    }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 20%;
-    }
-}
+  }
+  
