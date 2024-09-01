@@ -316,7 +316,7 @@ header ul li a.active
   }
   
   h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 700;
   }
   
@@ -345,7 +345,7 @@ header ul li a.active
     flex-direction: column;
     flex-basis: 100%;
     position: relative;
-    padding: 24px;
+    padding: 20px;
     background: #fff;
     border-radius: 10px;
   }
