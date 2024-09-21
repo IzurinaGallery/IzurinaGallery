@@ -15,7 +15,7 @@ body
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#A7C8FF,#D6E4FC);
+    background: #c9ebe5;
     user-select: none;
 }
 header
@@ -23,7 +23,7 @@ header
     position: sticky;
     top: 0; left: 0; right: 0;
     width: 100%;
-    background: #0B244E;
+    background: #f1d5f0;
     padding: 3px 100px;
     display: flex;
     justify-content: space-between;
@@ -64,12 +64,13 @@ header ul li a:hover ,
 header ul li a.active
 {
     background: #fff;
-    color: #0B244E;
+    color: #f77df3;
 }
+
 /*SocialMediaButton*/
 .icon
 {
-    color: #0B244E;
+    color: #526597;
 }
 .button a
 {
@@ -88,7 +89,7 @@ header ul li a.active
     width: 60px;
     margin: 0 5px;
     overflow: hidden;
-    background: #fff;
+    background: #ffdeef;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
@@ -168,8 +169,6 @@ header ul li a.active
     color: #ff0000;
 }
 
-
-
 /*footer*/
 
 .footer
@@ -178,7 +177,7 @@ header ul li a.active
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #0B244E;
+    background-color: #f1d5f0;
     color: #fff;
     text-align: center;
 }
@@ -187,10 +186,10 @@ header ul li a.active
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
 
 :root {
-  --color-accent: #0B244E;
+  --color-accent: #526597;
   --background-color: #f8f7fa;
   --foreground-color: #ffffff;
-  --text-color: #19181a;
+  --text-color: #526597;
   --highlight-text-color: var(--text-color);
   --active-text-color: #f8f7fa;
   --inactive-text-color: #a5a5a5;
@@ -333,12 +332,12 @@ header ul li a.active
   }
   
   :root {
-    --purple: #A7C8FF;
+    --purple: #526597;
     --pink: hsl(0, 59%, 94%);
     --light-bg: hsl(204, 37%, 92%);
     --light-gray-bg: hsl(0, 0%, 94%);
     --white: hsl(0, 0%, 100%);
-    --dark: hsl(0, 0%, 7%);
+    --dark: #526597;
   }
   
   h3 {
