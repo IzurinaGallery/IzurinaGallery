@@ -15,7 +15,7 @@ body
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    background: #c9ebe5;
+    background: linear-gradient(#A7C8FF,#D6E4FC);
     user-select: none;
 }
 header
@@ -23,7 +23,7 @@ header
     position: sticky;
     top: 0; left: 0; right: 0;
     width: 100%;
-    background: #f1d5f0;
+    background: #0B244E;
     padding: 3px 100px;
     display: flex;
     justify-content: space-between;
@@ -64,118 +64,12 @@ header ul li a:hover ,
 header ul li a.active
 {
     background: #fff;
-    color: #f77df3;
+    color: #0B244E;
 }
-.container
-{
-    max-width: 1500px;
-    max-height: 1500px;
-    width: 95%;
-}
-.slider-wrapper
-{
-    position: relative;
-}
-.slider-wrapper .slide-button
-{
-    position: absolute;
-    top: 50%;
-    height: 50px;
-    width: 50px;
-    color: #fff;
-    border: none;
-    outline: none;
-    background: #f1d5f0;
-    font-size: 2.2rem;
-    cursor: pointer;
-    border-radius: 50%;
-    transform: translateY(-50%);
-}
-.slider-wrapper .slide-button:hover
-{
-    background: #fff;
-    color: #ffdeef;
-}
-.slider-wrapper .slide-button#prev-slide
-{
-    left: -20px;
-    display: none;
-}
-.slider-wrapper .slide-button#next-slide
-{
-    right: -20px;
-}
-.slider-wrapper .image-list
-{
-    display: grid;
-    gap: 10px;
-    font-size: 0;
-    margin-bottom: 30px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    grid-template-columns: repeat(30, 1fr);
-}
-.slider-wrapper .image-list::-webkit-scrollbar
-{
-    display: none;
-}
-.slider-wrapper .image-list .image-item
-{
-    width: 325px;
-    height: 400px;
-    object-fit: cover;
-}
-.container .slider-scrollbar
-{
-    height: 24px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-.slider-scrollbar .scrollbar-track
-{
-    height: 2px;
-    width: 100%;
-    background: #fff;
-    position: relative;
-    border-radius: 4px;
-    align-items: center;
-
-}
-.slider-scrollbar:hover .scrollbar-track
-{
-    height: 4px;
-}
-.slider-scrollbar .scrollbar-thumb
-{
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    background: #ffdeef;
-    border-radius: inherit;
-    cursor: grab;
-}
-.slider-scrollbar .scrollbar-thumb:active
-{
-    cursor: grabbing;
-    height: 8px;
-    top: -2px;
-}
-.slider-scrollbar .scrollbar-thumb::after
-{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -10px;
-    bottom: -10px;
-}
-
-
 /*SocialMediaButton*/
 .icon
 {
-    color: #526597;
+    color: #0B244E;
 }
 .button a
 {
@@ -194,7 +88,7 @@ header ul li a.active
     width: 60px;
     margin: 0 5px;
     overflow: hidden;
-    background: #ffdeef;
+    background: #fff;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
@@ -275,6 +169,7 @@ header ul li a.active
 }
 
 
+
 /*footer*/
 
 .footer
@@ -283,12 +178,10 @@ header ul li a.active
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #f1d5f0;
+    background-color: #0B244E;
     color: #fff;
     text-align: center;
 }
-
-/*button*/
 
 .container
 {
@@ -309,7 +202,7 @@ header ul li a.active
     color: #fff;
     border: none;
     outline: none;
-    background: #526597;
+    background: #0B244E;
     font-size: 2.2rem;
     cursor: pointer;
     border-radius: 50%;
@@ -318,7 +211,7 @@ header ul li a.active
 .slider-wrapper .slide-button:hover
 {
     background: #fff;
-    color: #526597;
+    color: #0B244E;
 }
 .slider-wrapper .slide-button#prev-slide
 {
@@ -337,7 +230,7 @@ header ul li a.active
     margin-bottom: 30px;
     overflow-x: auto;
     scrollbar-width: none;
-    grid-template-columns: repeat(28, 1fr);
+    grid-template-columns: repeat(29, 1fr);
 }
 .slider-wrapper .image-list::-webkit-scrollbar
 {
@@ -396,7 +289,7 @@ header ul li a.active
 }
 .icon
 {
-    color: #526597;
+    color: #0B244E;
 }
 .button a
 {
@@ -414,12 +307,12 @@ header ul li a.active
   }
   
   :root {
-    --purple: #526597;
+    --purple: #A7C8FF;
     --pink: hsl(0, 59%, 94%);
     --light-bg: hsl(204, 37%, 92%);
     --light-gray-bg: hsl(0, 0%, 94%);
     --white: hsl(0, 0%, 100%);
-    --dark: #526597;
+    --dark: hsl(0, 0%, 7%);
   }
   
   h3 {
