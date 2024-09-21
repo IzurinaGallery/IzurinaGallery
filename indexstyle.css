@@ -15,7 +15,7 @@ body
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#A7C8FF,#D6E4FC);
+    background: #c9ebe5;
     user-select: none;
 }
 header
@@ -23,7 +23,7 @@ header
     position: sticky;
     top: 0; left: 0; right: 0;
     width: 100%;
-    background: #0B244E;
+    background: #f1d5f0;
     padding: 3px 100px;
     display: flex;
     justify-content: space-between;
@@ -64,7 +64,7 @@ header ul li a:hover ,
 header ul li a.active
 {
     background: #fff;
-    color: #0B244E;
+    color: #f77df3;
 }
 .container
 {
@@ -85,7 +85,7 @@ header ul li a.active
     color: #fff;
     border: none;
     outline: none;
-    background: #0B244E;
+    background: #ffdeef;
     font-size: 2.2rem;
     cursor: pointer;
     border-radius: 50%;
@@ -94,7 +94,7 @@ header ul li a.active
 .slider-wrapper .slide-button:hover
 {
     background: #fff;
-    color: #0B244E;
+    color: #ffdeef;
 }
 .slider-wrapper .slide-button#prev-slide
 {
@@ -151,7 +151,7 @@ header ul li a.active
     position: absolute;
     height: 100%;
     width: 50%;
-    background: #0B244E;
+    background: #ffdeef;
     border-radius: inherit;
     cursor: grab;
 }
@@ -170,16 +170,17 @@ header ul li a.active
     top: -10px;
     bottom: -10px;
 }
+
+
+/*SocialMediaButton*/
 .icon
 {
-    color: #0B244E;
+    color: #526597;
 }
 .button a
 {
     text-decoration: none;
 }
-
-/*SocialMediaButton*/
 .wrapper
 {
     display: flex;
@@ -193,7 +194,7 @@ header ul li a.active
     width: 60px;
     margin: 0 5px;
     overflow: hidden;
-    background: #fff;
+    background: #ffdeef;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
@@ -280,9 +281,7 @@ header ul li a.active
 /*profile details*/
 
   .right-containerr {
-    background: #0B244E; 
-    background: -webkit-linear-gradient(to left, #0f3577, #0B244E);
-    background: linear-gradient(to left, #0f3577, #0B244E); 
+    background: #ffdeef; 
     flex: 1;
     width: 650px;
     height:800px;
@@ -313,7 +312,7 @@ header ul li a.active
     margin-bottom: 5px;
   }
   .gradienttext{
-    background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+    background-image: linear-gradient(to right, #526597 0%, #526597 100%);
     color: transparent;
     -webkit-background-clip: text;
   }
@@ -332,7 +331,7 @@ header ul li a.active
     padding: 10px;
     border: none;
     border-radius: 20px;
-    color: white;
+    color: rgb(82, 101, 151);
   }
   
   td:first-child {
@@ -433,7 +432,8 @@ header ul li a.active
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #0B244E;
+    background-color: #f1d5f0;
     color: #fff;
     text-align: center;
 }
+
