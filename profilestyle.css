@@ -168,7 +168,10 @@ header ul li a.active
 {
     color: #ff0000;
 }
-
+.social-wrapper .button:nth-child(6) span
+{
+    color: #000;
+}
 
 /*timeline*/
 :root {
