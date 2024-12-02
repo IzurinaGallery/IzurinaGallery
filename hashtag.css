@@ -272,8 +272,10 @@ header ul li a.active
 .social-wrapper .button:nth-child(5) span
 {
     color: #ff0000;
+}.social-wrapper .button:nth-child(6) span
+{
+    color: #000;
 }
-
 
 /*footer*/
 
