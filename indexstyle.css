@@ -318,7 +318,7 @@ header ul li a.active
   .gradienttext{
     background-image: linear-gradient(to right, #526597 0%, #526597 100%);
     color: transparent;
-    -webkit-background-clip: text;
+    background-clip: text;
   }
   table {
     display: flex;
