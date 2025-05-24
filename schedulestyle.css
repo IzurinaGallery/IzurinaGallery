@@ -372,11 +372,12 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
+    min-height: 550px;
 }
 
 .box-image {
-    width: 100%;
-    height: 200px; 
+    width: auto; /* หรือ width: 100%; เพื่อให้รูปภาพเต็มความกว้างของการ์ด */
+    height: 500px; /* ตัวอย่าง: เพิ่มความสูงของรูปภาพ */
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -490,7 +491,7 @@ h1 {
 @media (min-width: 640px) {
     .box {
       flex-basis: calc(50% - 20px); /* 2 columns on wider screens */
-      max-width: 350px; /* กำหนด max-width เพื่อควบคุมขนาด */
+      max-width: 400px; /* กำหนด max-width เพื่อควบคุมขนาด */
     }
     .title-flex {
         flex-direction: row; /* กลับไปเป็น row เมื่อหน้าจอกว้างขึ้น */
@@ -501,12 +502,14 @@ h1 {
 @media (min-width: 1024px) {
     .box {
       flex-basis: calc(33.333% - 20px); /* 3 columns on larger screens */
+      max-width: 450px;
     }
 }
 
 @media (min-width: 1200px) {
     .box {
         flex-basis: calc(25% - 20px); /* 4 columns on very large screens */
+        max-width: 500px;
     }
 }
 
