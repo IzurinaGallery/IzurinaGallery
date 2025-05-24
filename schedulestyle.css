@@ -8,12 +8,11 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'NTR'; /* ใช้ NTR เป็น font หลัก */
-} 
+}
 
 body {
     display: flex;
     flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้ header, content, footer เรียงกัน */
-    /* align-items: center;  ลบอันนี้ออก เราจะจัดกึ่งกลางด้วย margin: auto ใน container แทน */
     min-height: 100vh;
     background: #c9ebe5; /* สีพื้นหลังตามเดิม */
     user-select: none;
