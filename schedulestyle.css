@@ -363,25 +363,25 @@ h1 {
 }
 
 .box {
-    background: #ffffff; 
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease;
-    min-height: 550px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 5cm; /* กำหนดความกว้างเป็น 5cm */
+    height: auto; /* ให้ความสูงปรับตามเนื้อหา */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+    min-height: auto; /* ปรับลด min-height ให้เหมาะสมกับการ์ดที่เล็ก */
 }
 
 .box-image {
-    width: 100%; /* หรือ width: 100%; เพื่อให้รูปภาพเต็มความกว้างของการ์ด */
-    height: auto; /* ตัวอย่าง: เพิ่มความสูงของรูปภาพ */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    width: 100%; /* รูปภาพจะเต็มความกว้างของการ์ด */
+    height: auto; /* ปรับความสูงของรูปภาพตามสัดส่วน */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .title-flex {
@@ -486,13 +486,27 @@ h1 {
         flex-grow: 1; /* ทำให้ Event Cards Container ขยายเต็มพื้นที่ที่เหลือ */
         padding: 0; /* ลบ padding ออก เพราะ .container จัดการแล้ว */
     }
+    .box {
+        width: 5cm; /* บนมือถือกว้าง 5cm */
+        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ เพื่อให้ width: 5cm มีผล */
+        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    }
+    .box-image {
+        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
+    }
+    /* ... อื่นๆ */
+}
 }
 
 
 @media (min-width: 640px) {
     .box {
-      flex-basis: calc(50% - 20px); /* 2 columns on wider screens */
-      max-width: 400px; /* กำหนด max-width เพื่อควบคุมขนาด */
+        width: 5cm; /* บนหน้าจอขนาดกลางกว้าง 5cm */
+        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
+        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    }
+    .box-image {
+        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
     }
     .title-flex {
         flex-direction: row; /* กลับไปเป็น row เมื่อหน้าจอกว้างขึ้น */
@@ -502,15 +516,23 @@ h1 {
 
 @media (min-width: 1024px) {
     .box {
-      flex-basis: calc(33.333% - 20px); /* 3 columns on larger screens */
-      max-width: 450px;
+        width: 5cm; /* บนหน้าจอขนาดใหญ่กว้าง 5cm */
+        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
+        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    }
+    .box-image {
+        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
     }
 }
 
 @media (min-width: 1200px) {
     .box {
-        flex-basis: calc(25% - 20px); /* 4 columns on very large screens */
-        max-width: 500px;
+        width: 5cm; /* บนหน้าจอที่ใหญ่มากๆ กว้าง 5cm */
+        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
+        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    }
+    .box-image {
+        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
     }
 }
 
