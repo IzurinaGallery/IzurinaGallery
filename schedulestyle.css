@@ -373,7 +373,6 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
-    min-height: auto; /* ปรับลด min-height ให้เหมาะสมกับการ์ดที่เล็ก */
 }
 
 .box-image {
