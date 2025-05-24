@@ -2,19 +2,16 @@
 <html lang="en">
     <head>
         <title>Rina Izuta</title>
-        <!-- HTML Meta Tags -->
-        <meta charset="uft-8">
+        <meta charset="utf-8">
         <meta name="description" content="Fan Website for Izuta Rina 「伊豆田莉奈」">
         <meta name="robots" content="none">
 
-        <!-- Facebook Meta Tags -->
         <meta property="og:url" content="https://izurina-gallery.vercel.app/">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Izurina Gallery">
         <meta property="og:description" content="Fan Website for Izuta Rina 「伊豆田莉奈」">
         <meta property="og:image" content="https://izurina-gallery.vercel.app/pic/event/IMG_3839.png">
 
-        <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="izurina-gallery.vercel.app">
         <meta property="twitter:url" content="https://izurina-gallery.vercel.app/">
@@ -22,9 +19,8 @@
         <meta name="twitter:description" content="Fan Website for Izuta Rina 「伊豆田莉奈」">
         <meta name="twitter:image" content="https://izurina-gallery.vercel.app/pic/event/IMG_8924.jpeg">
 
-        <link rel="shortcut icon" type="web-icon" href="pic/event/IMG_3839.png>
+        <link rel="shortcut icon" type="web-icon" href="pic/event/IMG_3839.png">
 
-                <!--Add to homescreen-->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="apple-touch-icon" sizes="60x60" href="pic/event/IMG_3839.png">
         <link rel="apple-touch-icon" sizes="76x76" href="pic/event/IMG_3839.png">
@@ -43,7 +39,6 @@
         <link rel="icon" type="image/png" sizes="16x16" href="pic/event/IMG_3839.png">
 
         <link rel="stylesheet" type="text/css" href="schedulestyle.css">
-        <!-- Google Fonts Link For Icons-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
         <script src="script.js" defer></script>
     </head>
@@ -58,84 +53,74 @@
             </ul>
         </header>
         <br><br>
-        <h1 align="center">Schedule</h1><br><br><br>
+        <h1 align="center">Schedule</h1><br>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-        <div class="card">
-            <div class="calendar-toolbar">
-                <button class="prev month-btn"><i class="fas fa-chevron-left"></i></button>
-                <div class="current-month"></div>
-                <button class="next month-btn"><i class="fas fa-chevron-right"></i></button>
+        <main id="main-content-area">
+            <div id="loading-overlay">
+                <div class="spinner"></div> 
+                <p>Loading events...</p>
             </div>
-            <div class="calendar">
-                <div class="weekdays">
-                    <div class="weekday-name">Sa</div>
-                    <div class="weekday-name">Su</div>
-                    <div class="weekday-name">Mo</div>
-                    <div class="weekday-name">Tu</div>
-                    <div class="weekday-name">We</div>
-                    <div class="weekday-name">Th</div>
-                    <div class="weekday-name">Fr</div>
+
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+            
+            <div class="container"> <div class="card calendar"> <div class="calendar-toolbar">
+                        <button class="prev month-btn"><i class="fas fa-chevron-left"></i></button>
+                        <div class="current-month"></div>
+                        <button class="next month-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="weekdays">
+                        <div class="weekday-name">Mo</div>
+                        <div class="weekday-name">Tu</div>
+                        <div class="weekday-name">We</div>
+                        <div class="weekday-name">Th</div>
+                        <div class="weekday-name">Fr</div>
+                        <div class="weekday-name">Sa</div>
+                        <div class="weekday-name">Su</div>
+                    </div>
+                    <div class="calendar-days"></div>
+                    <div class="goto-buttons">
+                        <button type="button" class="btn prev-year">Prev Year</button>
+                        <button type="button" class="btn today">Today</button>
+                        <button type="button" class="btn next-year">Next Year</button>
+                    </div>
                 </div>
-                <div class="calendar-days"></div>
-            </div>
-            <div class="goto-buttons">
-                <button type="button" class="btn prev-year">Prev Year</button>
-                <button type="button" class="btn today">Today</button>
-                <button type="button" class="btn next-year">Next Year</button>
-            </div>
-        </div><br><br><br><br>
+            </div> <br> <script src="https://kit.fontawesome.com/bfa9f49263.js" crossorigin="anonymous"></script>
 
-        <script src="https://kit.fontawesome.com/bfa9f49263.js" crossorigin="anonymous"></script>
-      <div class="wrap">
-
-            <div class="box">
-                <div class="box-top">
-                  <img class="box-image" src="pic/event/499256597_730824855968065_1779806633206855941_n.jpg" alt="TOFUYA MAKETTO">
-                  <div class="title-flex">
-                    <h3 class="box-title">TOFUYA MAKETTO</h3>
-                  </div>
-                  <p class="description">Date : 31 May 2025<br>Place : Bravo Bkk<br>Zone : TOFUYA Underground Meet<br>Maid Cafe Open : 13.00 - 17.00<br>Time to Take Photos : 17.00 - 17.30<br>Special Show : 17.30 - 18.00<br>Sign Poster : 18.00 - 18.30<br>Cheki Time : 18.30 - 19.00</p>
-                </div>
-                <a href="https://www.facebook.com/photo/?fbid=730894695961081&set=a.297892742594614" class="bttn">Details</a>
+            <div class="wrap" id="event-cards-container">
             </div>
 
-          
-        </div>
-
-        <br><br><br>
-        <div class="social-wrapper">
-            <div class="button"><a href="https://www.facebook.com/cgm48official.izutarina" target="_blank">
-                <div class="icon"><i class="fa-brands fa-facebook-f"></i></div>
-                <span>Facebook</span>
-            </div></a>
-            <div class="button"><a href="https://www.instagram.com/rinaizuta.official?igsh=MWNpOW5pam5kZGFvMw==" target="_blank">
-                <div class="icon"><i class="fa-brands fa-instagram"></i></i></div>
-                <span>Instagram</span>
-            </div></a>
-            <div class="button"><a href="https://twitter.com/izuketsu_deen">
-                <div class="icon"><i class="fa-brands fa-x-twitter"></i></i></div>
-                <span>X-Twitter</span>
-            </div></a>
-            <div class="button"><a href="https://www.tiktok.com/@rinaizuta.official?lang=en" target="_blank">
-                <div class="icon"><i class="fa-brands fa-tiktok"></i></div>
-                <span>Tiktok</span>
-            </div></a>
-            <div class="button"><a href="#" target="_blank">
-                <div class="icon"><i class="fa-brands fa-youtube"></i></div>
-                <span>Youtube</span>
-            </div></a>
-            <div class="button"><a href="https://line.me/ti/g2/fTB7x-fH4aZqRgpVOrVje-83mzznzEgUaXpoHw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
-                <div class="icon"><i class="fa-brands fa-line"></i></div>
-                <span>OpenChat(日本)</span>
-            </div></a>
-            <div class="button"><a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=rina.official" target="_blank">
-                <div class="icon"><i class="fa fa-briefcase"></i></div>
-                <span>Work Contact</span>
-            </div></a>
-        </div><br>
-        <div class="footer">
-            <p>&copy; 2024 GALLERYZUNA</p>
+            <br><br><br>
+            <div class="social-wrapper">
+                <div class="button"><a href="https://www.facebook.com/cgm48official.izutarina" target="_blank">
+                    <div class="icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <span>Facebook</span>
+                </div></a>
+                <div class="button"><a href="https://www.instagram.com/rinaizuta.official?igsh=MWNpOW5pam5kZGFvMw==" target="_blank">
+                    <div class="icon"><i class="fa-brands fa-instagram"></i></i></div>
+                    <span>Instagram</span>
+                </div></a>
+                <div class="button"><a href="https://twitter.com/izuketsu_deen">
+                    <div class="icon"><i class="fa-brands fa-x-twitter"></i></i></div>
+                    <span>X-Twitter</span>
+                </div></a>
+                <div class="button"><a href="https://www.tiktok.com/@rinaizuta.official?lang=en" target="_blank">
+                    <div class="icon"><i class="fa-brands fa-tiktok"></i></div>
+                    <span>Tiktok</span>
+                </div></a>
+                <div class="button"><a href="#" target="_blank">
+                    <div class="icon"><i class="fa-brands fa-youtube"></i></div>
+                    <span>Youtube</span>
+                </div></a>
+                <div class="button"><a href="https://line.me/ti/g2/fTB7x-fH4aZqRgpVOrVje-83mzznzEgUaXpoHw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+                    <div class="icon"><i class="fa-brands fa-line"></i></div>
+                    <span>OpenChat(日本)</span>
+                </div></a>
+                <div class="button"><a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=rina.official" target="_blank">
+                    <div class="icon"><i class="fa fa-briefcase"></i></div>
+                    <span>Work Contact</span>
+                </div></a>
+            </div><br>
+        </main> <footer class="footer"> <p>&copy; 2024 GALLERYZUNA</p>
         </footer>
     </body>
 </html>
