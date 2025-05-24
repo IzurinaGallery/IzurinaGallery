@@ -376,8 +376,8 @@ h1 {
 }
 
 .box-image {
-    width: auto; /* หรือ width: 100%; เพื่อให้รูปภาพเต็มความกว้างของการ์ด */
-    height: 500px; /* ตัวอย่าง: เพิ่มความสูงของรูปภาพ */
+    width: 300px; /* หรือ width: 100%; เพื่อให้รูปภาพเต็มความกว้างของการ์ด */
+    height: auto; /* ตัวอย่าง: เพิ่มความสูงของรูปภาพ */
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
