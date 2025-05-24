@@ -1,289 +1,236 @@
-const initSlider = () =>
-    {
-        const imageList = document.querySelector(".slider-wrapper .image-list");
-        const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
-        const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
-        const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
-        const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-       
-        //Handle scrollbar thumb drag
-        scrollbarThumb.addEventListener("mousedown", (e) => 
-        {
-            const startX = e.clientX;
-            const thumbPosition = scrollbarThumb.offsetLeft;
+document.addEventListener('DOMContentLoaded', function() {
+    // --- API Configuration ---
+    const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbxmanc-6wakikZZlCuM4cXn5bugxZm11egIj1F7qtn8kxZfnGdlGyfFI9lJ5GCr_nk2/exec'; 
+
+    let allEvents = []; 
+
+    // --- Calendar Logic ---
+    const calendarDays = document.querySelector(".calendar-days");
+    const currentMonthEl = document.querySelector(".current-month");
+    const prevMonthBtn = document.querySelector(".prev.month-btn");
+    const nextMonthBtn = document.querySelector(".next.month-btn");
+    const prevYearBtn = document.querySelector(".btn.prev-year");
+    const nextYearBtn = document.querySelector(".btn.next-year");
+    const todayBtn = document.querySelector(".btn.today");
+    const eventCardsContainer = document.getElementById('event-cards-container'); 
     
-            //Update thumb position on mouse move
-            const handleMouseMove = (e) =>
-            {
-                const deltaX = e.clientX - startX;
-                const newThumbPosition = thumbPosition + deltaX;
-                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetLeft;
-    
-                const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-                const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-    
-                scrollbarThumb.style.left = `${boundedPosition}px`;
-                imageList.scrollLeft = scrollPosition;
-            }
+    // --- เพิ่มตรงนี้: อ้างอิงถึง loading overlay ---
+    const loadingOverlay = document.getElementById('loading-overlay'); 
+
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    function renderCalendar() {
+        calendarDays.innerHTML = ""; 
+        currentMonthEl.textContent = `${months[currentMonth]} ${currentYear}`;
+
+        const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+        const firstWeekday = (firstDayOfMonth.getDay() + 6) % 7; 
+        const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+        const daysInMonth = lastDayOfMonth.getDate();
+
+        for (let i = 0; i < firstWeekday; i++) {
+            const blankDay = document.createElement("div");
+            blankDay.classList.add("day", "blank");
+            calendarDays.appendChild(blankDay);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayEl = document.createElement("div");
+            dayEl.classList.add("day");
+            dayEl.textContent = day;
+
+            const fullDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             
-            //Remove event listeners on mouse up
-            const handleMouseUp = () => 
-            {
-                document.removeEventListener("mousemove", handleMouseMove);
-                document.removeEventListener("mouseup", handleMouseUp);
+            const eventsForThisDay = allEvents.filter(event => 
+                event.date && event.date.split('T')[0] === fullDate
+            );
+
+            if (eventsForThisDay.length > 0) {
+                dayEl.classList.add("has-event"); 
+                
+                eventsForThisDay.forEach(event => {
+                    const eventDot = document.createElement("div");
+                    eventDot.classList.add("event-dot");
+                    if (event.highlight && event.highlight.toUpperCase() === 'TRUE') {
+                        eventDot.style.backgroundColor = '#EE6EEA'; 
+                    } else if (event.highlight && event.highlight.startsWith('#')) {
+                        eventDot.style.backgroundColor = event.highlight; 
+                    }
+                    dayEl.appendChild(eventDot);
+                });
+
+                dayEl.addEventListener('click', () => {
+                    scrollToDateEvents(fullDate); 
+                });
             }
-            //Add event listeners for drag interaction
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mouseup", handleMouseUp);
-        });
-    
-        // Slide images according to the slide button clicks
-        slideButtons.forEach(button =>
-        {
-            button.addEventListener("click", () => 
-            {
-                const direction = button.id === "prev-slide" ? -1 : 1;
-                const scrollAmount = imageList.clientWidth * direction;
-                imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-            });
-        });
-    
-        const handleSlideButtons = () => {
-            slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
-            slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+
+            if (day === new Date().getDate() && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()) {
+                dayEl.classList.add("today");
+            }
+            calendarDays.appendChild(dayEl);
         }
-    
-        //Update scrollbar thumb position based on image scroll
-        const updateScrollThumbPosition = () => {
-            const scrollPosition = imageList.scrollLeft;
-            const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-            scrollbarThumb.style.left = `${thumbPosition}px`;
-        }
-        imageList.addEventListener("scroll", () => 
-        {
-            handleSlideButtons();
-            updateScrollThumbPosition();
-        });
     }
-    
-    window.addEventListener("load", initSlider);
-    
-    
-    (function () {
-        // VARIABLES
-        const timeline = document.querySelector(".timeline ol"),
-          elH = document.querySelectorAll(".timeline li > div"),
-          arrows = document.querySelectorAll(".timeline .arrows .arrow"),
-          arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
-          arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
-          firstItem = document.querySelector(".timeline li:first-child"),
-          lastItem = document.querySelector(".timeline li:last-child"),
-          xScrolling = 300,
-          disabledClass = "disabled";
-      
-        // START
-        window.addEventListener("load", init);
-      
-        function init() {
-          setEqualHeights(elH);
-          animateTl(xScrolling, arrows, timeline);
-          setSwipeFn(timeline, arrowPrev, arrowNext);
-          setKeyboardFn(arrowPrev, arrowNext);
+
+    function changeMonth(delta) {
+        currentMonth += delta;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        } else if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
         }
-      
-        // SET EQUAL HEIGHTS
-        function setEqualHeights(el) {
-          let counter = 0;
-          for (let i = 0; i < el.length; i++) {
-            const singleHeight = el[i].offsetHeight;
-      
-            if (counter < singleHeight) {
-              counter = singleHeight;
-            }
-          }
-      
-          for (let i = 0; i < el.length; i++) {
-            el[i].style.height = `${counter}px`;
-          }
-        }
+        renderCalendar();
+    }
+
+    function changeYear(delta) {
+        currentYear += delta;
+        renderCalendar();
+    }
+
+    function goToToday() {
+        currentMonth = new Date().getMonth();
+        currentYear = new Date().getFullYear();
+        renderCalendar();
+    }
+
+    prevMonthBtn.addEventListener("click", () => changeMonth(-1));
+    nextMonthBtn.addEventListener("click", () => changeMonth(1));
+    prevYearBtn.addEventListener("click", () => changeYear(-1));
+    nextYearBtn.addEventListener("click", () => changeYear(1));
+    todayBtn.addEventListener("click", goToToday);
+
+    // --- Event Card Rendering (การสร้าง Event Card) ---
+    function renderEventCards(eventsToRender) {
+        eventCardsContainer.innerHTML = ''; 
         
-      
-        // CHECK IF AN ELEMENT IS IN VIEWPORT
-        // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-        function isElementInViewport(el) {
-          const rect = el.getBoundingClientRect();
-          return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <=
-              (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-          );
+        eventsToRender.sort((a, b) => {
+            const dateTimeA = new Date(a.date);
+            const dateTimeB = new Date(b.date);
+            return dateTimeA.getTime() - dateTimeB.getTime();
+        });
+
+        if (eventsToRender.length === 0) {
+            eventCardsContainer.innerHTML = '<p style="text-align: center; color: #555;">No upcoming events found.</p>';
+            return;
         }
-      
-        // SET STATE OF PREV/NEXT ARROWS
-        function setBtnState(el, flag = true) {
-          if (flag) {
-            el.classList.add(disabledClass);
-          } else {
-            if (el.classList.contains(disabledClass)) {
-              el.classList.remove(disabledClass);
+
+        eventsToRender.forEach(event => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            const eventDateForDataAttr = event.date ? event.date.split('T')[0] : '';
+            box.setAttribute('data-event-date', eventDateForDataAttr); 
+
+            const boxTop = document.createElement('div');
+            boxTop.classList.add('box-top');
+
+            if (event.image) {
+                const img = document.createElement('img');
+                img.classList.add('box-image');
+                img.src = event.image; 
+                img.alt = event.title || 'Event Image';
+                img.loading = 'lazy'; 
+                boxTop.appendChild(img);
             }
-            el.disabled = false;
-          }
-        }
-      
-        // ANIMATE TIMELINE
-        function animateTl(scrolling, el, tl) {
-          let counter = 0;
-          for (let i = 0; i < el.length; i++) {
-            el[i].addEventListener("click", function () {
-              if (!arrowPrev.disabled) {
-                arrowPrev.disabled = true;
-              }
-              if (!arrowNext.disabled) {
-                arrowNext.disabled = true;
-              }
-              const sign = this.classList.contains("arrow__prev") ? "" : "-";
-              if (counter === 0) {
-                tl.style.transform = `translateX(-${scrolling}px)`;
-              } else {
-                const tlStyle = getComputedStyle(tl);
-                // add more browser prefixes if needed here
-                const tlTransform =
-                  tlStyle.getPropertyValue("-webkit-transform") ||
-                  tlStyle.getPropertyValue("transform");
-                const values =
-                  parseInt(tlTransform.split(",")[4]) +
-                  parseInt(`${sign}${scrolling}`);
-                tl.style.transform = `translateX(${values}px)`;
-              }
-      
-              setTimeout(() => {
-                isElementInViewport(firstItem)
-                  ? setBtnState(arrowPrev)
-                  : setBtnState(arrowPrev, false);
-                isElementInViewport(lastItem)
-                  ? setBtnState(arrowNext)
-                  : setBtnState(arrowNext, false);
-              }, 1100);
-      
-              counter++;
-            });
-          }
-        }
-      
-        // ADD SWIPE SUPPORT FOR TOUCH DEVICES
-        function setSwipeFn(tl, prev, next) {
-          const hammer = hammer.fn();
-          hammer.on("swipeleft", () => next.click());
-          hammer.on("swiperight", () => prev.click());
-        }
-      
-        // ADD BASIC KEYBOARD FUNCTIONALITY
-        function setKeyboardFn(prev, next) {
-          document.addEventListener("keydown", (e) => {
-            if (e.which === 37 || e.which === 39) {
-              const timelineOfTop = timeline.offsetTop;
-              const y = window.pageYOffset;
-              if (timelineOfTop !== y) {
-                window.scrollTo(0, timelineOfTop);
-              }
-              if (e.which === 37) {
-                prev.click();
-              } else if (e.which === 39) {
-                next.click();
-              }
-            }
-          });
-        }
-      })();
-    
-// VARIABLES
-const elH = document.querySelectorAll(".timeline li > div");
 
-// START
-window.addEventListener("load", init);
+            const titleFlex = document.createElement('div');
+            titleFlex.classList.add('title-flex');
 
-function init() {
-  setEqualHeights(elH);
-}
-
-// SET EQUAL HEIGHTS
-function setEqualHeights(el) {
-  let counter = 0;
-  for (let i = 0; i < el.length; i++) {
-    const singleHeight = el[i].offsetHeight;
-
-    if (counter < singleHeight) {
-      counter = singleHeight;
-    }
-  }
-
-  for (let i = 0; i < el.length; i++) {
-    el[i].style.height = `${counter}px`;
-  }
-}
-
-var currentMonth = document.querySelector(".current-month");
-var calendarDays = document.querySelector(".calendar-days");
-var today = new Date();
-var date = new Date();
-
-
-currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
-today.setHours(0,0,0,0);
-renderCalendar();
-
-function renderCalendar(){
-    const prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate();
-    const totalMonthDay = new Date(date.getFullYear(),date.getMonth()+1,0).getDate();
-    const startWeekDay = new Date(date.getFullYear(),date.getMonth(),1).getDay();
-    
-    calendarDays.innerHTML = "";
-
-    let totalCalendarDay = 6 * 7;
-    for (let i = 0; i < totalCalendarDay; i++) {
-        let day = i-startWeekDay;
-
-        if(i <= startWeekDay){
-            // adding previous month days
-            calendarDays.innerHTML += `<div class='padding-day'>${prevLastDay-i}</div>`;
-        }else if(i <= startWeekDay+totalMonthDay){
-            // adding this month days
-            date.setDate(day);
-            date.setHours(0,0,0,0);
+            const title = document.createElement('h3');
+            title.classList.add('box-title');
+            title.textContent = event.title; 
+            titleFlex.appendChild(title);
             
-            let dayClass = date.getTime()===today.getTime() ? 'current-day' : 'month-day';
-            calendarDays.innerHTML += `<div class='${dayClass}'>${day}</div>`;
-        }else{
-            // adding next month days
-            calendarDays.innerHTML += `<div class='padding-day'>${day-totalMonthDay}</div>`;
+            boxTop.appendChild(titleFlex);
+
+            const description = document.createElement('p');
+            description.classList.add('description');
+            
+            let detailsHtml = '';
+            if (event.date) {
+                const displayDate = event.date.split('T')[0]; 
+                detailsHtml += `Date : ${displayDate}<br>`;
+            }
+            if (event.time) detailsHtml += `Time : ${event.time}<br>`;
+            if (event.place) detailsHtml += `Place : ${event.place}<br>`; 
+            if (event.channel) detailsHtml += `Channel : ${event.channel}<br>`; 
+            if (event.details) detailsHtml += `Details : ${event.details}`; 
+
+            description.innerHTML = detailsHtml;
+            boxTop.appendChild(description);
+            
+            box.appendChild(boxTop);
+
+            if (event.link) {
+                const linkBtn = document.createElement('a');
+                linkBtn.href = event.link; 
+                linkBtn.classList.add('bttn');
+                linkBtn.target = '_blank'; 
+                linkBtn.textContent = 'View';
+                box.appendChild(linkBtn);
+            } else {
+                const noLinkText = document.createElement('p');
+                noLinkText.classList.add('bttn', 'no-link'); 
+                noLinkText.textContent = 'No Link Available';
+                noLinkText.style.cursor = 'default';
+                noLinkText.style.backgroundColor = '#ccc'; 
+                noLinkText.style.color = '#666';
+                box.appendChild(noLinkText);
+            }
+
+            eventCardsContainer.appendChild(box); 
+        });
+    }
+
+    function scrollToDateEvents(date) {
+        const targetElement = document.querySelector(`.box[data-event-date="${date}"]`);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetElement.style.border = '2px solid #ee6eea';
+            setTimeout(() => {
+                targetElement.style.border = ''; 
+            }, 2000);
         }
     }
-}
 
-document.querySelectorAll(".month-btn").forEach(function (element) {
-	element.addEventListener("click", function () {
-		date = new Date(currentMonth.textContent);
-        date.setMonth(date.getMonth() + (element.classList.contains("prev") ? -1 : 1));
-		currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
-		renderCalendar();
-	});
-});
+    // --- Data Fetching (การดึงข้อมูลจาก Google Sheet API) ---
+    async function fetchEvents() {
+        // --- เพิ่มตรงนี้: แสดง Loading Overlay เมื่อเริ่มดึงข้อมูล ---
+        loadingOverlay.classList.remove('hidden'); 
 
-document.querySelectorAll(".btn").forEach(function (element) {
-	element.addEventListener("click", function () {
-        let btnClass = element.classList;
-        date = new Date(currentMonth.textContent);
-        if(btnClass.contains("today"))
-            date = new Date();
-        else if(btnClass.contains("prev-year"))
-            date = new Date(date.getFullYear()-1, 0, 1);
-        else
-            date = new Date(date.getFullYear()+1, 0, 1);
-        
-		currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
-		renderCalendar();
-	});
+        try {
+            const response = await fetch(GOOGLE_SHEET_API_URL);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            
+            allEvents = data.filter(event => event.date && event.title)
+                            .map(event => {
+                                if (event.date && event.date.includes('T')) {
+                                    return { ...event, date: event.date.split('T')[0] };
+                                }
+                                return event;
+                            });
+            
+            console.log('Fetched events:', allEvents); 
+            renderCalendar(); 
+            renderEventCards(allEvents); 
+        } catch (error) {
+            console.error("Could not fetch events:", error);
+            eventCardsContainer.innerHTML = '<p style="text-align: center; color: red;">Failed to load events. Please try again later.</p>';
+        } finally {
+            // --- เพิ่มตรงนี้: ซ่อน Loading Overlay เมื่อดึงข้อมูลเสร็จสิ้น (ไม่ว่าจะสำเร็จหรือล้มเหลว) ---
+            loadingOverlay.classList.add('hidden'); 
+        }
+    }
+
+    // เริ่มต้นโดยการดึงข้อมูลกิจกรรมเมื่อหน้าเว็บโหลดเสร็จ
+    fetchEvents();
 });
