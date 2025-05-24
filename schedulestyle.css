@@ -359,7 +359,6 @@ h1 {
     justify-content: center; /* จัดให้ card อยู่ตรงกลาง */
     gap: 20px; /* ระยะห่างระหว่าง card */
     padding: 20px 0; /* padding ด้านบนและล่าง แต่ด้านข้างให้ parent จัดการ */
-    /* margin-bottom: 50px;  ไม่จำเป็นถ้า container จัดการแล้ว */
 }
 
 .box {
@@ -367,64 +366,65 @@ h1 {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 5cm; /* กำหนดความกว้างเป็น 5cm */
+    width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างของการ์ดเป็น 10cm** */
     height: auto; /* ให้ความสูงปรับตามเนื้อหา */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
-    min-height: auto; /* ปรับ min-height เพื่อให้เนื้อหาไม่ถูกบีบอัดมากเกินไปเมื่อการ์ดเล็ก */
+    min-height: auto; /* **ปรับตรงนี้: ปรับ min-height เพื่อให้เนื้อหาไม่ถูกบีบอัด** */
 }
 
 .box-image {
-    width: 4cm; /* กำหนดความกว้างของรูปภาพเป็น 4cm */
+    width: 9cm; /* **ปรับตรงนี้: กำหนดความกว้างของรูปภาพเป็น 9cm** */
     height: auto; /* ปรับความสูงของรูปภาพตามสัดส่วน */
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 10px;
-    display: block; /* ทำให้ margin auto มีผล */
-    margin-left: auto; /* จัดกึ่งกลางรูปภาพภายใน .box */
-    margin-right: auto; /* จัดกึ่งกลางรูปภาพภายใน .box */
+    margin-bottom: 15px; /* **ปรับตรงนี้: เพิ่ม margin-bottom ให้มีระยะห่างด้านล่าง** */
+    display: block; /* **เพิ่มตรงนี้: ทำให้ margin auto มีผล** */
+    margin-left: auto; /* **เพิ่มตรงนี้: จัดกึ่งกลางรูปภาพภายใน .box** */
+    margin-right: auto; /* **เพิ่มตรงนี้: จัดกึ่งกลางรูปภาพภายใน .box** */
 }
+
 
 
 .title-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5px; /* ลด padding ด้านข้าง */
+    padding: 0 15px; /* **ปรับตรงนี้: เพิ่ม padding ด้านข้างกลับมา** */
     flex-wrap: wrap; /* เพื่อให้เนื้อหาขึ้นบรรทัดใหม่ได้ถ้าไม่พอ */
 }
 
 .box-title {
     border-left: 3px solid var(--color-accent);
-    padding-left: 5px; /* ลด padding ด้านซ้าย */
+    padding-left: 12px; /* **ปรับตรงนี้: ปรับ padding ด้านซ้าย** */
     color: var(--text-color);
-    font-size: 0.7rem; /* ลดขนาด font ให้เล็กลงมาก */
+    font-size: 1.1rem; /* **ปรับตรงนี้: ปรับขนาด font ให้เหมาะสม** */
     word-break: break-word; /* เพื่อให้ข้อความตัดคำได้ */
     flex-grow: 1; /* ให้ขยายได้เต็มที่ */
 }
 
 .description {
-    padding: 0 5px; /* ลด padding ด้านข้าง */
+    padding: 0 15px; /* **ปรับตรงนี้: ปรับ padding ด้านข้าง** */
     color: #555;
-    margin-bottom: 5px; /* ลด margin-bottom */
-    font-size: 0.6rem; /* ลดขนาด font ให้เล็กลงมาก */
+    margin-bottom: 15px; /* **ปรับตรงนี้: ปรับ margin-bottom** */
+    font-size: 0.9rem; /* **ปรับตรงนี้: ปรับขนาด font ให้เหมาะสม** */
     word-break: break-word;
 }
 
 .bttn {
     display: block;
-    width: calc(100% - 10px); /* ปรับ width ให้พอดีกับ padding ที่ลดลง */
-    margin: 0 5px 5px 5px; /* ลด margin รอบปุ่ม */
-    padding: 5px 0; /* ลด padding ของปุ่ม */
+    width: calc(100% - 30px); /* **ปรับตรงนี้: ปรับ width ให้พอดีกับ padding** */
+    margin: 0 15px 15px 15px; /* **ปรับตรงนี้: ปรับ margin รอบปุ่ม** */
+    padding: 10px 0; /* **ปรับตรงนี้: ปรับ padding ของปุ่ม** */
     text-align: center;
     background: var(--color-accent);
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
     transition: background 0.3s ease;
-    font-size: 0.7rem; /* ลดขนาด font ของปุ่ม */
+    font-size: 1rem; /* **ปรับตรงนี้: ปรับขนาด font ของปุ่ม** */
 }
 
 .bttn:hover {
@@ -470,26 +470,22 @@ h1 {
         max-width: 350px;
     }
     .box {
-        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนมือถือ */
-        max-width: none; /* เพื่อให้ width: 5cm มีผล */
-        min-height: auto;
+        width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างเป็น 10cm บนมือถือ** */
+        max-width: none; /* **ปรับตรงนี้: ลบ max-width ที่เคยกำหนดไว้ เพื่อให้ width: 10cm มีผล** */
+    min-height: auto;
     }
     .box-image {
-        width: 4cm; /* รูปภาพ 4cm บนมือถือ */
-    }
-    .title-flex {
-        flex-direction: column;
-        align-items: flex-start;
+        width: 9cm; /* **ปรับตรงนี้: รูปภาพ 9cm บนมือถือ** */
     }
     .box-title {
-        font-size: 0.6rem;
+        font-size: 0.9rem; /* **ปรับตรงนี้: ลดขนาด font ลงเล็กน้อยบนมือถือ** */
     }
     .description {
-        font-size: 0.5rem;
+        font-size: 0.8rem; /* **ปรับตรงนี้: ลดขนาด font ลงเล็กน้อยบนมือถือ** */
     }
     .bttn {
-        font-size: 0.6rem;
-        padding: 3px 0;
+        font-size: 0.9rem; /* **ปรับตรงนี้: ลดขนาด font ลงเล็กน้อยบนมือถือ** */
+        padding: 8px 0; /* **ปรับตรงนี้: ลด padding ของปุ่มลง** */
     }
 }
 
@@ -511,25 +507,25 @@ h1 {
         flex-grow: 1;
         padding: 0;
     }
-    .box {
-        width: 5cm; /* กำหนดความกว้างเป็น 5cm บน desktop */
-        max-width: none;
+     .box {
+        width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างเป็น 10cm บน desktop** */
+        max-width: none; /* **ปรับตรงนี้: ลบ max-width ที่เคยกำหนดไว้** */
         min-height: auto;
     }
     .box-image {
-        width: 4cm; /* รูปภาพ 4cm บน desktop */
+        width: 9cm; /* **ปรับตรงนี้: รูปภาพ 9cm บน desktop** */
     }
 }
 
 
 @media (min-width: 640px) {
     .box {
-        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอขนาดกลาง */
+        width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างเป็น 10cm บนหน้าจอขนาดกลาง** */
         max-width: none;
         min-height: auto;
     }
     .box-image {
-        width: 4cm;
+        width: 9cm; /* **ปรับตรงนี้: รูปภาพ 9cm** */
     }
     .title-flex {
         flex-direction: row;
@@ -539,23 +535,23 @@ h1 {
 
 @media (min-width: 1024px) {
     .box {
-        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอขนาดใหญ่ */
+        width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างเป็น 10cm บนหน้าจอขนาดใหญ่** */
         max-width: none;
         min-height: auto;
     }
     .box-image {
-        width: 4cm;
+        width: 9cm; /* **ปรับตรงนี้: รูปภาพ 9cm** */
     }
 }
 
 @media (min-width: 1200px) {
     .box {
-        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอที่ใหญ่มากๆ */
+        width: 10cm; /* **ปรับตรงนี้: กำหนดความกว้างเป็น 10cm บนหน้าจอที่ใหญ่มากๆ** */
         max-width: none;
         min-height: auto;
     }
     .box-image {
-        width: 4cm;
+        width: 9cm; /* **ปรับตรงนี้: รูปภาพ 9cm** */
     }
 }
 
