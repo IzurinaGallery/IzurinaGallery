@@ -301,7 +301,7 @@ document.querySelectorAll(".btn").forEach(function (element) {
 
 // URL ของ Google Apps Script Web App ของคุณ
 // **สำคัญ: คุณต้องแทนที่ 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL' ด้วย URL จริงของคุณ**
-const GOOGLE_SHEET_API_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; 
+const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbzv3smff4oYC8yUN5-sA4wX-QmOykyP9vq1PAfu1tIPzsSOQ8LcxAkFQEk3I6SuNBka/exec'; 
 
 // ฟังก์ชันสำหรับดึงข้อมูลกิจกรรมและแสดงผลบน Event Cards
 async function fetchEventsAndRenderCards() {
