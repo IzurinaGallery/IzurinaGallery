@@ -8,7 +8,7 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'NTR'; /* ใช้ NTR เป็น font หลัก */
-}
+} 
 
 body {
     display: flex;
