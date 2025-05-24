@@ -3,363 +3,363 @@
 
 /* --- GLOBAL STYLES --- */
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: 'NTR'; /* ใช้ NTR เป็น font หลัก */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'NTR'; /* ใช้ NTR เป็น font หลัก */
 }
 
 body {
-    display: flex;
-    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้ header, content, footer เรียงกัน */
-    /* align-items: center;  ลบอันนี้ออก เราจะจัดกึ่งกลางด้วย margin: auto ใน container แทน */
-    min-height: 100vh;
-    background: #c9ebe5; /* สีพื้นหลังตามเดิม */
-    user-select: none;
+    display: flex;
+    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้ header, content, footer เรียงกัน */
+    /* align-items: center;  ลบอันนี้ออก เราจะจัดกึ่งกลางด้วย margin: auto ใน container แทน */
+    min-height: 100vh;
+    background: #c9ebe5; /* สีพื้นหลังตามเดิม */
+    user-select: none;
 }
 
 /* --- HEADER STYLES --- */
 header {
-    position: sticky; /* ทำให้ Header อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: #f1d5f0; /* สีม่วงอ่อนตามเดิม */
-    padding: 3px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    position: sticky; /* ทำให้ Header อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #f1d5f0; /* สีม่วงอ่อนตามเดิม */
+    padding: 3px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
 header .Izurina {
-    color: #fff; /* สีขาวตามเดิม */
-    font-weight: bolder;
-    text-decoration: none;
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: left;
+    color: #fff; /* สีขาวตามเดิม */
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
 }
 
 header ul {
-    display: flex;
-    justify-items: center;
-    align-items: center;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
 header ul li {
-    list-style: none;
-    margin-left: 20px;
+    list-style: none;
+    margin-left: 20px;
 }
 
 header ul li a {
-    text-decoration: none;
-    padding: 6px 15px;
-    color: #fff; /* สีขาวตามเดิม */
-    border-radius: 15px;
-    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff; /* สีขาวตามเดิม */
+    border-radius: 15px;
+    font-size: 1.1rem;
 }
 
 header ul li a:hover,
 header ul li a.active {
-    background: #fff;
-    color: #f77df3; /* สีชมพูตามเดิม */
+    background: #fff;
+    color: #f77df3; /* สีชมพูตามเดิม */
 }
 
 /* --- MAIN CONTENT AREA (รวม calendar และ event cards) --- */
 #main-content-area {
-    position: relative; /* สำคัญมาก: กำหนดให้ parent เป็น relative สำหรับ loading overlay */
-    flex-grow: 1; /* ทำให้ main ขยายเต็มพื้นที่ที่เหลือระหว่าง header/footer */
-    width: 100%; /* ใช้ 100% แล้วให้ container จำกัดความกว้างแทน */
-    display: flex; /* ใช้ flexbox เพื่อจัดวาง calendar และ event cards */
-    flex-direction: column; /* จัดเรียง calendar และ event cards ในแนวตั้ง */
-    align-items: center; /* จัดกึ่งกลางแนวนอนของ content ภายใน main */
-    padding: 20px 0; /* เพิ่ม padding ด้านบนและล่าง แต่ไม่มีด้านข้าง เพื่อให้ container จัดการความกว้าง */
-    min-height: 500px; /* กำหนด min-height เพื่อให้ loading overlay มีพื้นที่แสดงผลตอนแรก */
+    position: relative; /* สำคัญมาก: กำหนดให้ parent เป็น relative สำหรับ loading overlay */
+    flex-grow: 1; /* ทำให้ main ขยายเต็มพื้นที่ที่เหลือระหว่าง header/footer */
+    width: 100%; /* ใช้ 100% แล้วให้ container จำกัดความกว้างแทน */
+    display: flex; /* ใช้ flexbox เพื่อจัดวาง calendar และ event cards */
+    flex-direction: column; /* จัดเรียง calendar และ event cards ในแนวตั้ง */
+    align-items: center; /* จัดกึ่งกลางแนวนอนของ content ภายใน main */
+    padding: 20px 0; /* เพิ่ม padding ด้านบนและล่าง แต่ไม่มีด้านข้าง เพื่อให้ container จัดการความกว้าง */
+    min-height: 500px; /* กำหนด min-height เพื่อให้ loading overlay มีพื้นที่แสดงผลตอนแรก */
 }
 
 /* Container ที่ครอบ Calendar และ Event Cards */
 .container {
-    display: flex;
-    flex-wrap: wrap; /* ให้ Calendar และ Event Cards ขึ้นบรรทัดใหม่ได้ */
-    justify-content: center; /* จัดกึ่งกลาง Calendar และ Event Cards ภายใน Container */
-    gap: 30px; /* ระยะห่างระหว่าง Calendar และ Event Card */
-    max-width: 1200px; /* กำหนดความกว้างสูงสุดของเนื้อหาหลัก */
-    width: 100%; /* ให้ container กว้าง 100% ของ main-content-area */
-    margin: 0 auto; /* จัดกึ่งกลาง container ภายใน main-content-area */
-    padding: 0 20px; /* เพิ่ม padding ด้านข้างสำหรับ container */
+    display: flex;
+    flex-wrap: wrap; /* ให้ Calendar และ Event Cards ขึ้นบรรทัดใหม่ได้ */
+    justify-content: center; /* จัดกึ่งกลาง Calendar และ Event Cards ภายใน Container */
+    gap: 30px; /* ระยะห่างระหว่าง Calendar และ Event Card */
+    max-width: 1200px; /* กำหนดความกว้างสูงสุดของเนื้อหาหลัก */
+    width: 100%; /* ให้ container กว้าง 100% ของ main-content-area */
+    margin: 0 auto; /* จัดกึ่งกลาง container ภายใน main-content-area */
+    padding: 0 20px; /* เพิ่ม padding ด้านข้างสำหรับ container */
 }
 
 
 h1 {
-    text-align: center;
-    color: #526597; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    text-align: center;
+    color: #526597;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* --- SOCIAL MEDIA BUTTONS STYLES --- */
 .social-wrapper {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    margin-top: 40px; 
-    margin-bottom: 40px; 
-    width: 100%; /* ให้ social-wrapper เต็มความกว้าง */
-    max-width: 1200px; /* จำกัดความกว้างสูงสุด */
-    margin: 40px auto; /* จัดกึ่งกลาง */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%; /* ให้ social-wrapper เต็มความกว้าง */
+    max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+    margin: 40px auto; /* จัดกึ่งกลาง */
 }
 
 .social-wrapper .button {
-    display: inline-block;
-    height: 60px;
-    width: 60px;
-    margin: 10px 5px; 
-    overflow: hidden;
-    background: #ffdeef; 
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
-    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 10px 5px;
+    overflow: hidden;
+    background: #ffdeef;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
+    transition: all 0.3s ease-in-out;
 }
 .social-wrapper .button:hover { width: 200px; }
 .social-wrapper .button .icon {
-    display: inline-block;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    border-radius: 50px;
-    box-sizing: border-box;
-    line-height: 60px;
-    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-in-out;
 }
-.social-wrapper .button:nth-child(1):hover .icon { background: #4267B2; } 
-.social-wrapper .button:nth-child(2):hover .icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); } 
-.social-wrapper .button:nth-child(3):hover .icon { background: #505255; } 
-.social-wrapper .button:nth-child(4):hover .icon { background: #000; } 
-.social-wrapper .button:nth-child(5):hover .icon { background: #ff0000; } 
-.social-wrapper .button:nth-child(6):hover .icon { background: #00B900; } 
-.social-wrapper .button:nth-child(7):hover .icon { background: #526597; } 
+.social-wrapper .button:nth-child(1):hover .icon { background: #4267B2; }
+.social-wrapper .button:nth-child(2):hover .icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-wrapper .button:nth-child(3):hover .icon { background: #505255; }
+.social-wrapper .button:nth-child(4):hover .icon { background: #000; }
+.social-wrapper .button:nth-child(5):hover .icon { background: #ff0000; }
+.social-wrapper .button:nth-child(6):hover .icon { background: #00B900; }
+.social-wrapper .button:nth-child(7):hover .icon { background: #526597; }
 
 .social-wrapper .button .icon i {
-    font-size: 25px;
-    line-height: 60px;
-    transition: all 0.3s ease-in-out;
-    color: #526597; 
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-in-out;
+    color: #526597;
 }
 .social-wrapper .button:hover .icon i { color: #fff; }
 .social-wrapper .button span {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 60px;
-    margin-left: 10px;
-    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    transition: all 0.3s ease-in-out;
 }
 .social-wrapper .button:nth-child(1) span { color: #4267B2; }
 .social-wrapper .button:nth-child(2) span { color: #E1306C; }
 .social-wrapper .button:nth-child(3) span { color: #505255; }
 .social-wrapper .button:nth-child(4) span { color: #000; }
 .social-wrapper .button:nth-child(5) span { color: #ff0000; }
-.social-wrapper .button:nth-child(6) span { color: #00B900; } 
-.social-wrapper .button:nth-child(7) span { color: #526597; } 
+.social-wrapper .button:nth-child(6) span { color: #00B900; }
+.social-wrapper .button:nth-child(7) span { color: #526597; }
 
 
 /* --- FOOTER STYLES --- */
 .footer { /* ใช้ class .footer เพราะใน HTML คุณใช้ class */
-    width: 100%;
-    background-color: #f1d5f0; 
-    color: #fff; 
-    text-align: center;
-    padding: 10px 0; 
-    margin-top: auto; 
+    width: 100%;
+    background-color: #f1d5f0;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
 }
 
 
 /* --- CALENDAR STYLES --- */
 :root {
-    --color-accent: #ee6eea; /* ชมพูเข้ม */
-    --background-color: #c9ebe5; /* สีพื้นหลัง body */
-    --foreground-color: #ffdeef; /* ชมพูอ่อนสำหรับ Event Card หรือส่วนอื่นๆ ที่ใช้ */ 
-    /* ^^^ ตัวแปรนี้จะยังคงเป็นสีชมพูอ่อนสำหรับ Event Cards ถ้าคุณต้องการให้ Event Cards ยังคงเป็นสีเดิม */
+    --color-accent: #ee6eea; /* ชมพูเข้ม */
+    --background-color: #c9ebe5; /* สีพื้นหลัง body */
+    --foreground-color: #ffdeef; /* ชมพูอ่อนสำหรับ Event Card หรือส่วนอื่นๆ ที่ใช้ */
+    /* ^^^ ตัวแปรนี้จะยังคงเป็นสีชมพูอ่อนสำหรับ Event Cards ถ้าคุณต้องการให้ Event Cards ยังคงเป็นสีเดิม */
 
-    --text-color: #526597; /* สีข้อความหลัก */
-    --highlight-text-color: #526597; /* สีข้อความไฮไลท์ */
-    --active-text-color: #ffffff; /* สีข้อความเมื่อ active */
-    --inactive-text-color: #a5a5a5;
-    --btn-bg: #f8f7fa; /* สีปุ่ม calendar */
-    --box-shadow: #efefef;
+    --text-color: #526597; /* สีข้อความหลัก */
+    --highlight-text-color: #526597; /* สีข้อความไฮไลท์ */
+    --active-text-color: #ffffff; /* สีข้อความเมื่อ active */
+    --inactive-text-color: #a5a5a5;
+    --btn-bg: #f8f7fa; /* สีปุ่ม calendar */
+    --box-shadow: #efefef;
 
-    --border-width: 1px;
-    --border-radius: 15px;
-    --spacing: 18px;
+    --border-width: 1px;
+    --border-radius: 15px;
+    --spacing: 18px;
 }
 
 .card.calendar { /* ระบุให้ชัดเจนว่าเป็น calendar card */
-    width: 350px; 
-    height: fit-content;
-    background-color: #FFFFFF; /* <--- เปลี่ยนตรงนี้เป็นสีขาว */
-    border-radius: var(--border-radius);
-    box-shadow: 0px 0px 10px var(--box-shadow);
-    margin-top: 20px; 
+    width: 350px;
+    height: fit-content;
+    background-color: #FFFFFF; /* <--- เปลี่ยนตรงนี้เป็นสีขาว */
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 10px var(--box-shadow);
+    margin-top: 20px;
 }
 
 .calendar-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    padding-bottom: 15px;
-    border-bottom: var(--border-width) solid var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-bottom: var(--border-width) solid var(--box-shadow);
 }
 
 .calendar-toolbar > .current-month {
-    font-size: 24px; 
-    font-weight: bold;
-    color: var(--highlight-text-color);
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--highlight-text-color);
 }
 
 .calendar-toolbar > [class$="month-btn"] {
-    width: 45px; 
-    height: 45px; 
-    text-align: center;
-    line-height: 45px; 
-    font-size: 16px; 
-    color: var(--highlight-text-color);
-    background: var(--btn-bg);
-    border: none;
-    border-radius: var(--border-radius);
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    color: var(--highlight-text-color);
+    background: var(--btn-bg);
+    border: none;
+    border-radius: var(--border-radius);
 }
 
 .weekdays,
 .calendar-days {
-    display: flex;
-    flex-wrap: wrap; 
-    padding: 0 var(--spacing);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 var(--spacing);
 }
 .weekdays {
-    padding-top: 12px;
+    padding-top: 12px;
 }
 .calendar-days {
-    padding-bottom: 12px;
+    padding-bottom: 12px;
 }
 
 .weekday-name,
-.day { 
-    width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่พ่อแม่ */
-    height: 45px; /* กำหนดความสูงคงที่ */
-    color: var(--text-color);
-    text-align: center;
-    line-height: 45px; 
-    font-weight: 500;
-    font-size: 1.1rem; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5px; 
-    box-sizing: border-box; /* สำคัญ: รวม padding/border เข้าไปใน width */
+.day {
+    width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่พ่อแม่ */
+    height: 45px; /* กำหนดความสูงคงที่ */
+    color: var(--text-color);
+    text-align: center;
+    line-height: 45px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box; /* สำคัญ: รวม padding/border เข้าไปใน width */
 }
 
 .weekday-name {
-    color: var(--highlight-text-color);
-    font-weight: 700;
-    font-size: 1.2rem;
+    color: var(--highlight-text-color);
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
-.day.today { 
-    background-color: var(--color-accent);
-    color: var(--active-text-color);
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    transition: 0.5s;
-    cursor: pointer;
+.day.today {
+    background-color: var(--color-accent);
+    color: var(--active-text-color);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .padding-day {
-    color: var(--inactive-text-color);
-    user-select: none;
+    color: var(--inactive-text-color);
+    user-select: none;
 }
 
 .calendar-toolbar > [class$="month-btn"]:hover,
-.day:not(.blank):hover, 
+.day:not(.blank):hover,
 .btn:hover {
-    border-radius: var(--border-radius);
-    background-color: var(--btn-bg); 
-    color: var(--color-accent);
-    border-radius: var(--border-radius);
-    transition: 0.1s;
-    cursor: pointer;
-    box-shadow: inset 0px 0px 0px 1.5px var(--color-accent);
+    border-radius: var(--border-radius);
+    background-color: var(--btn-bg);
+    color: var(--color-accent);
+    border-radius: var(--border-radius);
+    transition: 0.1s;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 0px 1.5px var(--color-accent);
 }
 
 .calendar-toolbar > [class$="month-btn"]:focus,
-.day:focus, 
+.day:focus,
 .btn:focus {
-    border-radius: var(--border-radius);
-    background-color: var(--color-accent);
-    color: var(--active-text-color);
+    border-radius: var(--border-radius);
+    background-color: var(--color-accent);
+    color: var(--active-text-color);
 }
 
 .goto-buttons {
-    border-top: var(--border-width) solid var(--box-shadow);
-    padding: var(--spacing) 0;
-    display: flex;
-    justify-content: space-evenly;
+    border-top: var(--border-width) solid var(--box-shadow);
+    padding: var(--spacing) 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .btn {
-    background: var(--btn-bg);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 12px 14px; 
-    color: var(--highlight-text-color);
-    font-family: "Quicksand", sans-serif;
-    font-weight: 600;
-    font-size: 1rem; 
-    margin-right: 1px;
-    box-shadow: 0px 0px 0px var(--box-shadow);
+    background: var(--btn-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 12px 14px;
+    color: var(--highlight-text-color);
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 1px;
+    box-shadow: 0px 0px 0px var(--box-shadow);
 }
 
 /* Event dot style */
 .event-dot {
-    width: 7px; 
-    height: 7px; 
-    background-color: #526597; 
-    border-radius: 50%;
-    margin-top: 2px; 
-    display: inline-block; 
+    width: 7px;
+    height: 7px;
+    background-color: #526597;
+    border-radius: 50%;
+    margin-top: 2px;
+    display: inline-block;
 }
 
 .day {
-    position: relative; 
-    min-height: 55px; 
-    border: 1px solid #ffffff; 
-    box-sizing: border-box; 
+    position: relative;
+    min-height: 55px;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
 }
 .day.has-event {
-    background: #ffc2e4; 
-    position: relative;
+    background: #ffc2e4;
+    position: relative;
 }
 
 .day.has-event:hover {
-    background: #ee6eea; 
-    color: #fff;
+    background: #ee6eea;
+    color: #fff;
 }
 
 
 
 
 #event-cards-container { /* ใช้ ID แทน class เพื่อให้สอดคล้องกับ JS */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* จัดให้ card อยู่ตรงกลาง */
-    gap: 20px; /* ระยะห่างระหว่าง card */
-    padding: 20px 0; /* padding ด้านบนและล่าง แต่ด้านข้างให้ parent จัดการ */
-    /* margin-bottom: 50px;  ไม่จำเป็นถ้า container จัดการแล้ว */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* จัดให้ card อยู่ตรงกลาง */
+    gap: 20px; /* ระยะห่างระหว่าง card */
+    padding: 20px 0; /* padding ด้านบนและล่าง แต่ด้านข้างให้ parent จัดการ */
+    /* margin-bottom: 50px;  ไม่จำเป็นถ้า container จัดการแล้ว */
 }
 
 .box {
@@ -373,207 +373,230 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
+    min-height: auto; /* ปรับ min-height เพื่อให้เนื้อหาไม่ถูกบีบอัดมากเกินไปเมื่อการ์ดเล็ก */
 }
 
 .box-image {
-    width: 5cm; /* รูปภาพจะเต็มความกว้างของการ์ด */
+    width: 4cm; /* กำหนดความกว้างของรูปภาพเป็น 4cm */
     height: auto; /* ปรับความสูงของรูปภาพตามสัดส่วน */
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
+    display: block; /* ทำให้ margin auto มีผล */
+    margin-left: auto; /* จัดกึ่งกลางรูปภาพภายใน .box */
+    margin-right: auto; /* จัดกึ่งกลางรูปภาพภายใน .box */
 }
 
 
 .title-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px; /* ลด padding ด้านข้าง */
+    flex-wrap: wrap; /* เพื่อให้เนื้อหาขึ้นบรรทัดใหม่ได้ถ้าไม่พอ */
 }
 
 .box-title {
-    border-left: 3px solid var(--color-accent); 
-    padding-left: 12px;
-    color: var(--text-color); 
+    border-left: 3px solid var(--color-accent);
+    padding-left: 5px; /* ลด padding ด้านซ้าย */
+    color: var(--text-color);
+    font-size: 0.7rem; /* ลดขนาด font ให้เล็กลงมาก */
+    word-break: break-word; /* เพื่อให้ข้อความตัดคำได้ */
+    flex-grow: 1; /* ให้ขยายได้เต็มที่ */
 }
 
 .description {
-    padding: 0 15px; 
-    color: #555; 
-    margin-bottom: 15px;
+    padding: 0 5px; /* ลด padding ด้านข้าง */
+    color: #555;
+    margin-bottom: 5px; /* ลด margin-bottom */
+    font-size: 0.6rem; /* ลดขนาด font ให้เล็กลงมาก */
+    word-break: break-word;
 }
 
 .bttn {
-    display: block;
-    width: calc(100% - 30px); 
-    margin: 0 15px 15px 15px; 
-    padding: 10px 0;
-    text-align: center;
-    background: var(--color-accent); 
-    color: #fff; 
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease;
+    display: block;
+    width: calc(100% - 10px); /* ปรับ width ให้พอดีกับ padding ที่ลดลง */
+    margin: 0 5px 5px 5px; /* ลด margin รอบปุ่ม */
+    padding: 5px 0; /* ลด padding ของปุ่ม */
+    text-align: center;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-size: 0.7rem; /* ลดขนาด font ของปุ่ม */
 }
 
 .bttn:hover {
-    background: #f77df3; 
+    background: #f77df3;
 }
 
 /* RESPONSIVE QUERIES */
 
 @media (max-width: 768px) {
-    header {
-        padding: 3px 20px; 
-        flex-direction: column; 
-    }
-    header .Izurina {
-        font-size: 2.5rem;
-    }
-    header ul {
-        margin-top: 10px; 
-        flex-wrap: wrap; 
-        justify-content: center;
-    }
-    header ul li {
-        margin: 5px 10px; 
-    }
-    header ul li a {
-        padding: 5px 10px;
-        font-size: 1rem;
-    }
-    .footer {
-        padding: 8px 0; 
-    }
+    header {
+        padding: 3px 20px;
+        flex-direction: column;
+    }
+    header .Izurina {
+        font-size: 2.5rem;
+    }
+    header ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header ul li {
+        margin: 5px 10px;
+    }
+    header ul li a {
+        padding: 5px 10px;
+        font-size: 1rem;
+    }
+    .footer {
+        padding: 8px 0;
+    }
 
-    /* Adjust main content area for smaller screens */
-    #main-content-area {
-        padding: 15px 0; /* ลด padding เพื่อให้มีพื้นที่มากขึ้น */
+    /* Adjust main content area for smaller screens */
+    #main-content-area {
+        padding: 15px 0;
+    }
+    .container {
+        gap: 10px; /* ลด gap บนมือถือ */
+        padding: 0 10px; /* ปรับ padding ด้านข้างของ container */
+    }
+    .card.calendar {
+        width: 100%; /* ให้ calendar card เต็มความกว้างบนมือถือ */
+        max-width: 350px;
+    }
+    .box {
+        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนมือถือ */
+        max-width: none; /* เพื่อให้ width: 5cm มีผล */
+        min-height: auto;
+    }
+    .box-image {
+        width: 4cm; /* รูปภาพ 4cm บนมือถือ */
     }
-    .container {
-        gap: 20px; /* ลด gap บนมือถือ */
-        padding: 0 15px; /* ปรับ padding ด้านข้างของ container */
+    .title-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .box-title {
+        font-size: 0.6rem;
     }
-    .card.calendar {
-        width: 100%; /* ให้ calendar card เต็มความกว้างบนมือถือ */
-        max-width: 350px; /* แต่ไม่เกินขนาด desktop */
+    .description {
+        font-size: 0.5rem;
     }
-    .box {
-        width: 100%; /* ให้ event card เต็มความกว้างบนมือถือ */
-        max-width: 300px; /* แต่ไม่เกินขนาด desktop */
-    }
-    .title-flex { 
-        flex-direction: column;
-        align-items: flex-start;
+    .bttn {
+        font-size: 0.6rem;
+        padding: 3px 0;
     }
 }
 
 @media (min-width: 769px) { /* ใช้ 769px เพื่อไม่ให้ทับกับ 768px */
-    .container {
-        flex-direction: row; /* จัดเรียงในแนวนอนสำหรับ Desktop */
-        align-items: flex-start; /* จัดให้ card ชิดด้านบน */
-        justify-content: center; /* จัดกลุ่ม calendar และ event card ตรงกลาง */
-    }
+    .container {
+        flex-direction: row; /* จัดเรียงในแนวนอนสำหรับ Desktop */
+        align-items: flex-start; /* จัดให้ card ชิดด้านบน */
+        justify-content: center; /* จัดกลุ่ม calendar และ event card ตรงกลาง */
+    }
 
-    .card.calendar {
-        flex-shrink: 0; /* ป้องกันไม่ให้ calendar card หดตัว */
-        margin-right: 30px; /* เพิ่มระยะห่างระหว่าง calendar กับ event cards */
-        width: 350px; /* กำหนดขนาดคงที่สำหรับ Calendar */
-        margin-top: 0; /* ลบ margin-top ที่เคยมี */
-    }
+    .card.calendar {
+        flex-shrink: 0;
+        margin-right: 30px;
+        width: 350px;
+        margin-top: 0;
+    }
 
-    #event-cards-container {
-        flex-grow: 1; /* ทำให้ Event Cards Container ขยายเต็มพื้นที่ที่เหลือ */
-        padding: 0; /* ลบ padding ออก เพราะ .container จัดการแล้ว */
-    }
+    #event-cards-container {
+        flex-grow: 1;
+        padding: 0;
+    }
     .box {
-        width: 5cm; /* บนมือถือกว้าง 5cm */
-        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ เพื่อให้ width: 5cm มีผล */
-        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+        width: 5cm; /* กำหนดความกว้างเป็น 5cm บน desktop */
+        max-width: none;
+        min-height: auto;
     }
     .box-image {
-        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
+        width: 4cm; /* รูปภาพ 4cm บน desktop */
     }
-    /* ... อื่นๆ */
-}
 }
 
 
 @media (min-width: 640px) {
-    .box {
-        width: 5cm; /* บนหน้าจอขนาดกลางกว้าง 5cm */
-        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
-        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    .box {
+        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอขนาดกลาง */
+        max-width: none;
+        min-height: auto;
     }
-    .box-image {
-        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
-    }
-    .title-flex {
-        flex-direction: row; /* กลับไปเป็น row เมื่อหน้าจอกว้างขึ้น */
-        align-items: center;
-    }
+    .box-image {
+        width: 4cm;
+    }
+    .title-flex {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 @media (min-width: 1024px) {
-    .box {
-        width: 5cm; /* บนหน้าจอขนาดใหญ่กว้าง 5cm */
-        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
-        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    .box {
+        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอขนาดใหญ่ */
+        max-width: none;
+        min-height: auto;
     }
-    .box-image {
-        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
-    }
+    .box-image {
+        width: 4cm;
+    }
 }
 
 @media (min-width: 1200px) {
-    .box {
-        width: 5cm; /* บนหน้าจอที่ใหญ่มากๆ กว้าง 5cm */
-        max-width: none; /* ลบ max-width ที่เคยกำหนดไว้ */
-        min-height: auto; /* ปรับ min-height ให้เหมาะสม */
+    .box {
+        width: 5cm; /* กำหนดความกว้างเป็น 5cm บนหน้าจอที่ใหญ่มากๆ */
+        max-width: none;
+        min-height: auto;
     }
-    .box-image {
-        height: auto; /* หรือกำหนดความสูงคงที่ถ้าต้องการ */
-    }
+    .box-image {
+        width: 4cm;
+    }
 }
 
 /* --- Loading Overlay Styles (เหมือนเดิม) --- */
 #loading-overlay {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999; 
-    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #loading-overlay.hidden {
-    opacity: 0; 
-    pointer-events: none; 
+    opacity: 0;
+    pointer-events: none;
 }
 
 .spinner {
-    border: 8px solid #f3f3f3; 
-    border-top: 8px solid var(--color-accent); 
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1.2s linear infinite;
-    margin-bottom: 20px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--color-accent);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+    margin-bottom: 20px;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 #loading-overlay p {
-    color: var(--highlight-text-color);
-    font-size: 1.2em;
-    font-weight: bold;
+    color: var(--highlight-text-color);
+    font-size: 1.2em;
+    font-weight: bold;
 }
