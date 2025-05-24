@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
-*
-{
+
+/* --- GLOBAL RESET & BASE STYLES --- */
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -8,20 +9,23 @@
     font-family: 'NTR';
 }
 
-body
-{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background: #c9ebe5;
     user-select: none;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
 }
-header
-{
+
+/* --- HEADER --- */
+header {
     position: sticky;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background: #f1d5f0;
     padding: 3px 100px;
@@ -31,8 +35,8 @@ header
     z-index: 1000;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
-header .Izurina
-{
+
+header .Izurina {
     color: #fff;
     font-weight: bolder;
     text-decoration: none;
@@ -41,43 +45,122 @@ header .Izurina
     letter-spacing: 2px;
     text-align: left;
 }
-header ul
-{
-    display: flex;
+
+/* NAVIGATION LINKS (Always visible now) */
+header .navbar ul {
+    display: flex; /* ทำให้ navbar แสดงผลเสมอ */
     justify-items: center;
     align-items: center;
 }
-header ul li
-{
+
+header .navbar ul li {
     list-style: none;
     margin-left: 20px;
 }
-header ul li a
-{
+
+header .navbar ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff;
+    color: #fff; 
     border-radius: 15px;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* ขนาดตัวอักษรเริ่มต้น */
+    transition: all 0.3s ease; /* เพิ่ม transition เพื่อความนุ่มนวล */
 }
-header ul li a:hover ,
-header ul li a.active
-{
+
+/* เปลี่ยนสีพื้นหลังเป็นสีขาว และตัวอักษรเป็น #f77df3 เมื่อ hover หรือ active */
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
     background: #fff;
-    color: #f77df3;
+    color: #f77df3; 
 }
-.container
-{
+
+/* --- REMOVED HAMBURGER MENU STYLES --- */
+/* ส่วนของ .menu-toggle และ .bar จะถูกลบออกไปทั้งหมด */
+
+
+/* --- MAIN CONTENT LAYOUT & SPACING --- */
+.home-section {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 100%;
     max-width: 1500px;
-    max-height: 1500px;
-    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
-.slider-wrapper
-{
+
+.sec {
+    padding: 0 15px;
+}
+.sec h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #ffdeef;
+    width: 650px;
+    height: auto;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 40px;
+    max-width: calc(100% - 30px);
+}
+
+.card .right-containerr h5 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gradienttext {
+    background-image: linear-gradient(to right, #526597 0%, #526597 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* --- TABLE STYLES --- */
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+    height: auto;
+}
+
+.card table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.card table tr:last-child {
+    border-bottom: none;
+}
+
+.card table td {
+    padding: 10px;
+    border: none;
+    color: rgb(82, 101, 151);
+}
+
+.card table td:first-child {
+    font-weight: bold;
+}
+
+/* --- SLIDER - ADJUSTED FOR UNIFORM IMAGE SIZE --- */
+.container {
+    max-width: 1500px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider-wrapper {
     position: relative;
 }
-.slider-wrapper .slide-button
-{
+
+.slider-wrapper .slide-button {
     position: absolute;
     top: 50%;
     height: 50px;
@@ -90,64 +173,68 @@ header ul li a.active
     cursor: pointer;
     border-radius: 50%;
     transform: translateY(-50%);
+    z-index: 1;
 }
-.slider-wrapper .slide-button:hover
-{
+
+.slider-wrapper .slide-button:hover {
     background: #fff;
     color: #ffdeef;
 }
-.slider-wrapper .slide-button#prev-slide
-{
+
+.slider-wrapper .slide-button#prev-slide {
     left: -20px;
     display: none;
 }
-.slider-wrapper .slide-button#next-slide
-{
+
+.slider-wrapper .slide-button#next-slide {
     right: -20px;
 }
-.slider-wrapper .image-list
-{
+
+.slider-wrapper .image-list {
     display: grid;
     gap: 10px;
     font-size: 0;
     margin-bottom: 30px;
     overflow-x: auto;
     scrollbar-width: none;
-    grid-template-columns: repeat(29, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 1fr);
+    scroll-snap-type: x mandatory;
 }
-.slider-wrapper .image-list::-webkit-scrollbar
-{
+
+.slider-wrapper .image-list::-webkit-scrollbar {
     display: none;
 }
-.slider-wrapper .image-list .image-item
-{
-    width: 325px;
-    height: 400px;
+
+.slider-wrapper .image-list .image-item {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    aspect-ratio: 13 / 16; /* Desktop/Tablet: สัดส่วนเดิม */
 }
-.container .slider-scrollbar
-{
+
+.container .slider-scrollbar {
     height: 24px;
     width: 100%;
     display: flex;
     align-items: center;
 }
-.slider-scrollbar .scrollbar-track
-{
+
+.slider-scrollbar .scrollbar-track {
     height: 2px;
     width: 100%;
     background: #fff;
     position: relative;
     border-radius: 4px;
-    align-items: center;
-
 }
-.slider-scrollbar:hover .scrollbar-track
-{
+
+.slider-scrollbar:hover .scrollbar-track {
     height: 4px;
 }
-.slider-scrollbar .scrollbar-thumb
-{
+
+.slider-scrollbar .scrollbar-thumb {
     position: absolute;
     height: 100%;
     width: 50%;
@@ -155,14 +242,14 @@ header ul li a.active
     border-radius: inherit;
     cursor: grab;
 }
-.slider-scrollbar .scrollbar-thumb:active
-{
+
+.slider-scrollbar .scrollbar-thumb:active {
     cursor: grabbing;
     height: 8px;
     top: -2px;
 }
-.slider-scrollbar .scrollbar-thumb::after
-{
+
+.slider-scrollbar .scrollbar-thumb::after {
     content: "";
     position: absolute;
     left: 0;
@@ -171,28 +258,21 @@ header ul li a.active
     bottom: -10px;
 }
 
+/* --- SOCIAL MEDIA BUTTONS --- */
+.social-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
 
-/*SocialMediaButton*/
-.icon
-{
-    color: #526597;
-}
-.button a
-{
-    text-decoration: none;
-}
-.wrapper
-{
+.social-wrapper .button {
     display: flex;
     align-items: center;
-    flex-direction: row;
-}
-.social-wrapper .button
-{
-    display: inline-block;
     height: 60px;
     width: 60px;
-    margin: 0 5px;
     overflow: hidden;
     background: #ffdeef;
     border-radius: 50px;
@@ -200,244 +280,302 @@ header ul li a.active
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
     transition: all 0.3s ease-in-out;
 }
-.social-wrapper .button:hover
-{
+
+.social-wrapper .button:hover {
     width: 200px;
 }
-.social-wrapper .button .icon
-{
-    display: inline-block;
+
+.social-wrapper .button .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 60px;
-    width: 60px;
+    min-width: 60px;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 50%;
     box-sizing: border-box;
-    line-height: 60px;
     transition: all 0.3s ease-in-out;
 }
-.social-wrapper .button:nth-child(1):hover .icon
-{
-    background: #4267B2;
+.social-wrapper .button a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
-.social-wrapper .button:nth-child(2):hover .icon
-{
-    background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-.social-wrapper .button:nth-child(3):hover .icon
-{
-    background: #505255;
-}
-.social-wrapper .button:nth-child(4):hover .icon
-{
-    background:#000;
-}
-.social-wrapper .button:nth-child(5):hover .icon
-{
-    background: #ff0000;
-}
-.social-wrapper .button .icon i
-{
+
+.social-wrapper .button:nth-child(1):hover .icon { background: #4267B2; }
+.social-wrapper .button:nth-child(2):hover .icon { background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-wrapper .button:nth-child(3):hover .icon { background: #505255; }
+.social-wrapper .button:nth-child(4):hover .icon { background:#000; }
+.social-wrapper .button:nth-child(5):hover .icon { background: #ff0000; }
+
+.social-wrapper .button .icon i {
     font-size: 25px;
-    line-height: 60px;
     transition: all 0.3s ease-in-out;
+    color: #526597;
 }
-.social-wrapper .button:hover .icon i
-{
-    color: #fff;
-}
-.social-wrapper .button span
-{
+.social-wrapper .button:hover .icon i { color: #fff; }
+
+.social-wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-in-out;
-}
-.social-wrapper .button:nth-child(1) span
-{
-    color: #4267B2;
-}
-.social-wrapper .button:nth-child(2) span
-{
-    color: #E1306C;
-}
-.social-wrapper .button:nth-child(3) span
-{
-    color: #505255;
-}
-.social-wrapper .button:nth-child(4) span
-{
-    color: #000;
-}
-.social-wrapper .button:nth-child(5) span
-{
-    color: #ff0000;
-}
-.social-wrapper .button:nth-child(6) span
-{
-    color: #000;
+    white-space: nowrap;
 }
 
+.social-wrapper .button:nth-child(1) span { color: #4267B2; }
+.social-wrapper .button:nth-child(2) span { color: #E1306C; }
+.social-wrapper .button:nth-child(3) span { color: #505255; }
+.social-wrapper .button:nth-child(4) span { color: #000; }
+.social-wrapper .button:nth-child(5) span { color: #ff0000; }
+.social-wrapper .button:nth-child(6) span { color: #000; }
+.social-wrapper .button:nth-child(7) span { color: #000; }
 
 
-
-
-/*profile details*/
-
-  .right-containerr {
-    background: #ffdeef; 
-    flex: 1;
-    width: 650px;
-    height:800px;
-    padding: 10px;
-    margin: 20px;
-    border-radius:30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  @media only screen and (max-width: 860px) {
-    .cardinfo
-     {
-     flex-direction: column;
-     margin: 10px;
-     height: auto;
-     width: 90%;
-    }
-}
-  @media only screen and (max-width: 600px) {
-    .cardinfo
-     {
-     flex-direction: column;
-     margin: 10px;
-    }
-  }
-  h5 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  .gradienttext{
-    background-image: linear-gradient(to right, #526597 0%, #526597 100%);
-    color: transparent;
-    background-clip: text;
-  }
-  table {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 280px;
-    border-collapse: collapse;
-  }
-  
-  td {
-    
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    color: rgb(82, 101, 151);
-  }
-  
-  td:first-child {
-    font-weight: bold;
-  }
-
-/*System for mobile and tablets */
-
-@media (max-width: 1290px)
-{
-    .container
-    {
-        max-width: 1200px;
-        width: 90%;
-    }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
-    }
-    .slider-wrapper .image-list
-    {
-        gap: 15px;
-        margin-bottom: 15px;
-    }
-    .slider-wrapper .image-list .image-item
-    {
-        width: 325px;
-        height: 400px;
-    }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 30%;
-    }
-    
-}
-
-@media (max-width: 1200px)
-{
-    .container
-    {
-        max-width: 1100px;
-        width: 90%;
-    }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
-    }
-    .slider-wrapper .image-list
-    {
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    .slider-wrapper .image-list .image-item
-    {
-        width: 325px;
-        height: 400px;
-    }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 30%;
-    }
-    
-}
-@media (max-width: 1024px)
-{
-    
-    .container
-    {
-        max-width: 1000px;
-        width: 90%;
-    }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
-    }
-    .slider-wrapper .image-list
-    {
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    .slider-wrapper .image-list .image-item
-    {
-        width: 325px;
-        height: 400px;
-    }
-    .slider-scrollbar .scrollbar-thumb
-    {
-        width: 20%;
-    }
-    
-}
-
-/*footer*/
-
-.footer
-{
-    position: sticky;
+/* --- FOOTER --- */
+.footer {
+    margin-top: auto;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #f1d5f0;
     color: #fff;
     text-align: center;
+    padding: 10px 0;
 }
 
+
+/* ================================================================= */
+/* MEDIA QUERIES (สำหรับ Responsive Design)          */
+/* ================================================================= */
+
+/* สำหรับหน้าจอขนาดกลาง (Tablets) และ Desktop ที่แคบ */
+@media (max-width: 1024px) {
+    header {
+        padding: 3px 15px;
+    }
+
+    header .Izurina {
+        font-size: 2.2rem;
+    }
+
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอขนาดนี้ */
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บน Tablet */
+    header .navbar ul li a {
+        font-size: 1rem; 
+        margin-left: 15px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 5px 10px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    .sec h1 {
+        font-size: 2rem;
+    }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: minmax(220px, 1fr);
+        gap: 6px;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 13 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 30%;
+    }
+}
+
+/* สำหรับมือถือ (ทั่วไป max-width 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 10px;
+        /* เปลี่ยน justify-content เพื่อให้ Navbar ชิดขวา หรือเว้นช่องว่างตามต้องการ */
+        justify-content: space-between; 
+    }
+
+    header .Izurina {
+        font-size: 1.8rem;
+    }
+
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอมือถือ */
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือ */
+    header .navbar ul li a {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือ */
+        margin-left: 10px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 4px 8px;
+    }
+    
+    /* หาก Navbar บนมือถือล้น ให้พิจารณาเปลี่ยนเป็น flex-wrap หรือลด padding/margin เพิ่มเติม */
+    header .navbar ul {
+        flex-wrap: wrap; /* ทำให้ลิงก์ขึ้นบรรทัดใหม่ถ้าล้น */
+        justify-content: flex-end; /* จัดลิงก์ให้ชิดขวา */
+        margin-left: auto; /* ดัน navbar ไปทางขวา */
+    }
+
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    /* Slider (ภาพสไลด์) */
+    .home-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .sec h1 {
+        font-size: 1.8rem;
+    }
+
+    .slider-wrapper .slide-button {
+        height: 35px;
+        width: 35px;
+        font-size: 1.5rem;
+    }
+    .slider-wrapper .slide-button#prev-slide { left: 5px; display: block; }
+    .slider-wrapper .slide-button#next-slide { right: 5px; display: block; }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: 100%;
+        gap: 0;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 40%;
+    }
+
+    /* Basic Information (ตารางข้อมูล) */
+    .card {
+        padding: 10px;
+        margin: 15px auto;
+        max-width: calc(100% - 20px);
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+    
+    .card table td {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+
+    .card table td:first-child {
+        font-weight: bold;
+    }
+
+    /* Social Media Buttons */
+    .social-wrapper {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .social-wrapper .button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .social-wrapper .button:hover {
+        width: 150px;
+    }
+    .social-wrapper .button .icon {
+        height: 50px;
+        min-width: 50px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 20px;
+    }
+    .social-wrapper .button span {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 10px 0;
+        font-size: 0.75em;
+    }
+}
+
+/* สำหรับมือถือที่เล็กมากๆ (max-width: 480px) */
+@media (max-width: 480px) {
+    header .Izurina {
+        font-size: 1.5rem;
+    }
+    
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือเล็กๆ */
+    header .navbar ul li a {
+        font-size: 0.8rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือเล็กๆ */
+        margin-left: 8px;
+        padding: 3px 6px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    .sec h1 {
+        font-size: 1.3rem;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 9 / 16;
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1em;
+    }
+
+    .card table td {
+        font-size: 0.8em;
+        padding: 6px 0;
+    }
+
+    .social-wrapper .button {
+        height: 45px;
+        width: 45px;
+    }
+    .social-wrapper .button:hover {
+        width: 140px;
+    }
+    .social-wrapper .button .icon {
+        height: 45px;
+        min-width: 45px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 18px;
+    }
+    .social-wrapper .button span {
+        font-size: 14px;
+        line-height: 45px;
+    }
+
+    .footer {
+        padding: 8px 0;
+        font-size: 0.7em;
+    }
+}
