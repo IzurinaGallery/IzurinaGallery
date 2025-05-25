@@ -69,7 +69,7 @@ header ul li a.active {
 }
 
 body { /* หรือคลาสเฉพาะสำหรับเนื้อหาหลักของคุณ */
-    padding-top: 200px; /* เช่น 60px หากส่วนหัวของคุณสูง 60px */
+    padding-top: 0px; /* เช่น 60px หากส่วนหัวของคุณสูง 60px */
 }
 
 /*SocialMediaButton*/
