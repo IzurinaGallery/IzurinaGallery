@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // --- API Configuration ---
-    const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbyjZwmlsqBjbOKPdaV5bs05h_7k6xbQcLepRDGDc3M/dev'; 
+    const GOOGLE_SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbyIT6K_L3DqOGmdFgkpAr2kkHGzd7wPkF9Y15MQkb9tkv8rc7Dnq_UXqId_7g3e1yzp/exec'; 
 
     let allEvents = []; 
 
