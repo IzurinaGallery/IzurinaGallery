@@ -235,4 +235,98 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchEvents();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const imageList = document.querySelector('.slider-wrapper .image-list');
+    const slideButtons = document.querySelectorAll('.slider-wrapper .slide-button');
+    const sliderScrollbar = document.querySelector('.container .slider-scrollbar');
+    const scrollbarThumb = sliderScrollbar.querySelector('.scrollbar-thumb');
+    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+
+    // Handle scrollbar thumb drag
+    scrollbarThumb.addEventListener('mousedown', (e) => {
+        const startX = e.clientX;
+        const thumbPosition = scrollbarThumb.offsetLeft;
+
+        const handleMouseMove = (e) => {
+            const deltaX = e.clientX - startX;
+            const newThumbPosition = thumbPosition + deltaX;
+            const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+
+            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+            const scrollPercentage = boundedPosition / maxThumbPosition;
+            imageList.scrollLeft = scrollPercentage * maxScrollLeft;
+        };
+
+        const handleMouseUp = () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+    });
+
+    // Handle slide buttons click
+    slideButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const direction = button.id === 'prev-slide' ? -1 : 1;
+            const scrollAmount = imageList.clientWidth * 0.8; // เลื่อน 80% ของความกว้างของ imageList
+            imageList.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        });
+    });
+
+    // Update scrollbar thumb position based on image scroll
+    const updateScrollThumbPosition = () => {
+        const scrollPosition = imageList.scrollLeft;
+        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+        scrollbarThumb.style.left = `${thumbPosition}px`;
+    };
+
+    imageList.addEventListener('scroll', () => {
+        updateScrollThumbPosition();
+        handleSlideButtons(); // อัปเดตสถานะของปุ่มลูกศรเมื่อมีการเลื่อน
+    });
+
+    // Show or hide slide buttons based on scroll position
+    const handleSlideButtons = () => {
+        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? 'none' : 'block';
+        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? 'none' : 'block';
+    };
+
+    // Initial call to hide/show buttons and set thumb position on page load
+    // ใช้ setTimeout เพื่อให้แน่ใจว่ารูปภาพโหลดเสร็จแล้วและได้ค่า clientWidth/scrollWidth ที่ถูกต้อง
+    setTimeout(() => {
+        handleSlideButtons();
+        updateScrollThumbPosition();
+    }, 100); // อาจจะปรับเวลาตรงนี้ได้ ถ้ามีรูปภาพเยอะมาก อาจจะต้องใช้เวลาโหลดนานขึ้น
+
+    // Recalculate maxScrollLeft and update UI on window resize
+    window.addEventListener('resize', () => {
+        const newMaxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+        if (newMaxScrollLeft !== maxScrollLeft) { // เช็คว่าค่าเปลี่ยนไปหรือไม่ก่อนอัปเดต
+            maxScrollLeft = newMaxScrollLeft; // อัปเดตค่า maxScrollLeft (ต้องประกาศเป็น let)
+            handleSlideButtons();
+            updateScrollThumbPosition();
+        }
+    });
+
+    // เพิ่มฟังก์ชันสำหรับ Dropdown Navbar (จากโค้ดเดิมของคุณ)
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.createElement('div');
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+    document.querySelector('header').appendChild(menuToggle); // เพิ่มปุ่ม toggle เข้าไปใน header
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+
+    // ปิด dropdown เมื่อคลิกนอกเมนู (optional)
+    document.addEventListener('click', (event) => {
+        if (!navbar.contains(event.target) && !menuToggle.contains(event.target)) {
+            navbar.classList.remove('active');
+        }
+    });
+});
+
 
