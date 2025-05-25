@@ -310,23 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // เพิ่มฟังก์ชันสำหรับ Dropdown Navbar (จากโค้ดเดิมของคุณ)
-    const navbar = document.getElementById("navbar");
-    const menuToggle = document.createElement('div');
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
-    document.querySelector('header').appendChild(menuToggle); // เพิ่มปุ่ม toggle เข้าไปใน header
-
-    menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
-
-    // ปิด dropdown เมื่อคลิกนอกเมนู (optional)
-    document.addEventListener('click', (event) => {
-        if (!navbar.contains(event.target) && !menuToggle.contains(event.target)) {
-            navbar.classList.remove('active');
-        }
-    });
 });
 
 
