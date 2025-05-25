@@ -68,6 +68,10 @@ header ul li a.active {
     color: #f77df3; /* สีชมพูตามเดิม */
 }
 
+body { /* หรือคลาสเฉพาะสำหรับเนื้อหาหลักของคุณ */
+    padding-top: 60px; /* เช่น 60px หากส่วนหัวของคุณสูง 60px */
+}
+
 /*SocialMediaButton*/
 .icon
 {
