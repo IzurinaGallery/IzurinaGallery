@@ -32,7 +32,6 @@ header {
     align-items: center;
     z-index: 1000;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    height: 60px; /* กำหนดความสูงของส่วนหัว */
 }
 
 header .Izurina {
