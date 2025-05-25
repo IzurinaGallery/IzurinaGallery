@@ -399,6 +399,13 @@ header ul li a.active {
 .footer {
         padding: 8px 0;
         font-size: 0.7em;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1d5f0;
+        color: #fff;
+        text-align: center;
+}
 }
 /*work*/
 
