@@ -17,6 +17,7 @@ body
     min-height: 100vh;
     background: #c9ebe5;
     user-select: none;
+    padding-top: 60px; /* เพิ่ม padding-top เท่ากับความสูงของ header */
 }
 header {
     position: sticky; /* ทำให้ Header อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
@@ -31,6 +32,7 @@ header {
     align-items: center;
     z-index: 1000;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    height: 60px; /* กำหนดความสูงของส่วนหัว */
 }
 
 header .Izurina {
