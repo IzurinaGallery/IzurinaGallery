@@ -18,12 +18,13 @@ body
     background: #c9ebe5;
     user-select: none;
 }
-header
-{
-    position: sticky;
-    top: 0; left: 0; right: 0;
+header {
+    position: sticky; /* ทำให้ Header อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    background: #f1d5f0;
+    background: #f1d5f0; /* สีม่วงอ่อนตามเดิม */
     padding: 3px 100px;
     display: flex;
     justify-content: space-between;
@@ -31,9 +32,9 @@ header
     z-index: 1000;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
-header .Izurina
-{
-    color: #fff;
+
+header .Izurina {
+    color: #fff; /* สีขาวตามเดิม */
     font-weight: bolder;
     text-decoration: none;
     font-size: 3rem;
@@ -41,30 +42,30 @@ header .Izurina
     letter-spacing: 2px;
     text-align: left;
 }
-header ul
-{
+
+header ul {
     display: flex;
     justify-items: center;
     align-items: center;
 }
-header ul li
-{
+
+header ul li {
     list-style: none;
     margin-left: 20px;
 }
-header ul li a
-{
+
+header ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff;
+    color: #fff; /* สีขาวตามเดิม */
     border-radius: 15px;
     font-size: 1.1rem;
 }
-header ul li a:hover ,
-header ul li a.active
-{
+
+header ul li a:hover,
+header ul li a.active {
     background: #fff;
-    color: #f77df3;
+    color: #f77df3; /* สีชมพูตามเดิม */
 }
 
 /*SocialMediaButton*/
