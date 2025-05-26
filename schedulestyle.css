@@ -596,3 +596,237 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
 }
+
+/* ================================================================= */
+/* MEDIA QUERIES (สำหรับ Responsive Design)          */
+/* ================================================================= */
+
+/* สำหรับหน้าจอขนาดกลาง (Tablets) และ Desktop ที่แคบ */
+@media (max-width: 1024px) {
+    header {
+        padding: 3px 15px;
+    }
+
+    header .Izurina {
+        font-size: 2.2rem;
+    }
+
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอขนาดนี้ */
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บน Tablet */
+    header .navbar ul li a {
+        font-size: 1rem; 
+        margin-left: 15px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 5px 10px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    .sec h1 {
+        font-size: 2rem;
+    }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: minmax(220px, 1fr);
+        gap: 6px;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 13 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 30%;
+    }
+}
+
+/* สำหรับมือถือ (ทั่วไป max-width 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 10px;
+        /* เปลี่ยน justify-content เพื่อให้ Navbar ชิดขวา หรือเว้นช่องว่างตามต้องการ */
+        justify-content: space-between; 
+    }
+
+    header .Izurina {
+        font-size: 1.8rem;
+    }
+
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอมือถือ */
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือ */
+    header .navbar ul li a {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือ */
+        margin-left: 10px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 4px 8px;
+    }
+    
+    /* หาก Navbar บนมือถือล้น ให้พิจารณาเปลี่ยนเป็น flex-wrap หรือลด padding/margin เพิ่มเติม */
+    header .navbar ul {
+        flex-wrap: wrap; /* ทำให้ลิงก์ขึ้นบรรทัดใหม่ถ้าล้น */
+        justify-content: flex-end; /* จัดลิงก์ให้ชิดขวา */
+        margin-left: auto; /* ดัน navbar ไปทางขวา */
+    }
+
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    /* Slider (ภาพสไลด์) */
+    .home-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .sec h1 {
+        font-size: 1.8rem;
+    }
+
+    .slider-wrapper .slide-button {
+        height: 35px;
+        width: 35px;
+        font-size: 1.5rem;
+    }
+    .slider-wrapper .slide-button#prev-slide { left: 5px; display: block; }
+    .slider-wrapper .slide-button#next-slide { right: 5px; display: block; }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: 100%;
+        gap: 0;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 40%;
+    }
+
+    /* Basic Information (ตารางข้อมูล) */
+    .card {
+        padding: 10px;
+        margin: 15px auto;
+        max-width: calc(100% - 20px);
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+    
+    .card table td {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+
+    .card table td:first-child {
+        font-weight: bold;
+    }
+
+    /* Social Media Buttons */
+    .social-wrapper {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .social-wrapper .button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .social-wrapper .button:hover {
+        width: 150px;
+    }
+    .social-wrapper .button .icon {
+        height: 50px;
+        min-width: 50px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 20px;
+    }
+    .social-wrapper .button span {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 10px 0;
+        font-size: 0.75em;
+    }
+}
+
+/* สำหรับมือถือที่เล็กมากๆ (max-width: 480px) */
+@media (max-width: 480px) {
+    header .Izurina {
+        font-size: 1.5rem;
+    }
+    
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือเล็กๆ */
+    header .navbar ul li a {
+        font-size: 0.8rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือเล็กๆ */
+        margin-left: 8px;
+        padding: 3px 6px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none; 
+    }
+
+    .sec h1 {
+        font-size: 1.3rem;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 9 / 16;
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1em;
+    }
+
+    .card table td {
+        font-size: 0.8em;
+        padding: 6px 0;
+    }
+
+    .social-wrapper .button {
+        height: 45px;
+        width: 45px;
+    }
+    .social-wrapper .button:hover {
+        width: 140px;
+    }
+    .social-wrapper .button .icon {
+        height: 45px;
+        min-width: 45px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 18px;
+    }
+    .social-wrapper .button span {
+        font-size: 14px;
+        line-height: 45px;
+    }
+
+    .footer {
+        padding: 8px 0;
+        font-size: 0.7em;
+    }
+}
