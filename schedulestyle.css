@@ -1,32 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"); /* เพิ่ม font สำหรับ Calendar */
 
-/* --- GLOBAL STYLES --- */
+/* --- GLOBAL RESET & BASE STYLES --- */
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'NTR'; /* ใช้ NTR เป็น font หลัก */
+    font-family: 'NTR';
 }
 
 body {
-    display: flex;
-    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้ header, content, footer เรียงกัน */
-    /* align-items: center;  ลบอันนี้ออก เราจะจัดกึ่งกลางด้วย margin: auto ใน container แทน */
     min-height: 100vh;
-    background: #c9ebe5; /* สีพื้นหลังตามเดิม */
+    display: flex;
+    flex-direction: column;
+    background: #c9ebe5;
     user-select: none;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
 }
 
-/* --- HEADER STYLES --- */
+/* --- HEADER --- */
 header {
-    position: sticky; /* ทำให้ Header อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    background: #f1d5f0; /* สีม่วงอ่อนตามเดิม */
+    background: #f1d5f0;
     padding: 3px 100px;
     display: flex;
     justify-content: space-between;
@@ -36,7 +37,7 @@ header {
 }
 
 header .Izurina {
-    color: #fff; /* สีขาวตามเดิม */
+    color: #fff;
     font-weight: bolder;
     text-decoration: none;
     font-size: 3rem;
@@ -45,29 +46,32 @@ header .Izurina {
     text-align: left;
 }
 
-header ul {
-    display: flex;
+/* NAVIGATION LINKS (Always visible now) */
+header .navbar ul {
+    display: flex; /* ทำให้ navbar แสดงผลเสมอ */
     justify-items: center;
     align-items: center;
 }
 
-header ul li {
+header .navbar ul li {
     list-style: none;
     margin-left: 20px;
 }
 
-header ul li a {
+header .navbar ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff; /* สีขาวตามเดิม */
+    color: #fff; 
     border-radius: 15px;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* ขนาดตัวอักษรเริ่มต้น */
+    transition: all 0.3s ease; /* เพิ่ม transition เพื่อความนุ่มนวล */
 }
 
-header ul li a:hover,
-header ul li a.active {
+/* เปลี่ยนสีพื้นหลังเป็นสีขาว และตัวอักษรเป็น #f77df3 เมื่อ hover หรือ active */
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
     background: #fff;
-    color: #f77df3; /* สีชมพูตามเดิม */
+    color: #f77df3; 
 }
 
 /* --- MAIN CONTENT AREA (รวม calendar และ event cards) --- */
