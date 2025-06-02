@@ -10,16 +10,16 @@
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: 100vh; /* กำหนดความสูงขั้นต่ำของ body ให้เต็ม viewport */
+    display: flex; /* ทำให้ body เป็น flex container */
+    flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
     background: #c9ebe5;
     user-select: none;
     padding-left: 0;
     padding-right: 0;
     overflow-x: hidden;
     padding-top: 100px; /* เพิ่ม padding-top เท่ากับความสูงของ header */
-    padding-bottom: 50px; /* เพิ่ม padding-bottom เพื่อไม่ให้เนื้อหาชน footer */
+    /* ไม่ต้องใช้ padding-bottom ที่ body แล้ว เพราะ footer จะจัดการตัวเอง */
 }
 
 /* --- HEADER --- */
@@ -338,16 +338,16 @@ header .navbar ul li a.active {
 
 /* --- FOOTER --- */
 .footer {
-    position: fixed; /* ทำให้ Footer อยู่ด้านล่างเมื่อเลื่อนหน้าจอ */
-    left: 0;
-    bottom: 0;
+    position: sticky; /* ทำให้ Footer "ติด" กับขอบล่างของหน้าจอ */
+    bottom: 0; /* กำหนดให้ติดขอบล่าง */
     width: 100%;
     background-color: #f1d5f0;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     font-size: 1em;
-    z-index: 1000;
+    z-index: 999; /* Z-index น้อยกว่า header แต่ยังคงอยู่เหนือเนื้อหา */
+    margin-top: auto; /* ดัน footer ไปอยู่ล่างสุดของ flex container (body) */
 }
 
 
