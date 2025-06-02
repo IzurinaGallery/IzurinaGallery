@@ -20,7 +20,6 @@ body {
     overflow-x: hidden;
 }
 
-
 /* --- HEADER --- */
 header {
     position: sticky;
@@ -62,7 +61,7 @@ header .navbar ul li {
 header .navbar ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff; 
+    color: #fff;
     border-radius: 15px;
     font-size: 1.1rem; /* ขนาดตัวอักษรเริ่มต้น */
     transition: all 0.3s ease; /* เพิ่ม transition เพื่อความนุ่มนวล */
@@ -72,11 +71,84 @@ header .navbar ul li a {
 header .navbar ul li a:hover,
 header .navbar ul li a.active {
     background: #fff;
-    color: #f77df3; 
+    color: #f77df3;
 }
 
 /* --- REMOVED HAMBURGER MENU STYLES --- */
 /* ส่วนของ .menu-toggle และ .bar จะถูกลบออกไปทั้งหมด */
+
+
+/* --- MAIN CONTENT LAYOUT & SPACING --- */
+.home-section {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.sec {
+    padding: 0 15px;
+}
+.sec h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Updated .card to be centered */
+.card {
+    background: #ffdeef;
+    width: 650px;
+    height: auto;
+    padding: 10px;
+    margin: 20px auto; /* This centers the card horizontally */
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 40px;
+    max-width: calc(100% - 30px);
+}
+
+.card .right-containerr h5 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gradienttext {
+    background-image: linear-gradient(to right, #526597 0%, #526597 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* --- TABLE STYLES --- */
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+    height: auto;
+}
+
+.card table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.card table tr:last-child {
+    border-bottom: none;
+}
+
+.card table td {
+    padding: 10px;
+    border: none;
+    color: rgb(82, 101, 151);
+}
+
+.card table td:first-child {
+    font-weight: bold;
+}
+
 /* --- SLIDER - ADJUSTED FOR UNIFORM IMAGE SIZE --- */
 .container {
     max-width: 1500px;
@@ -187,29 +259,21 @@ header .navbar ul li a.active {
     bottom: -10px;
 }
 
-
-
-/*SocialMediaButton*/
-.icon
-{
-    color: #526597;
+/* --- SOCIAL MEDIA BUTTONS --- */
+.social-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    padding: 0 15px;
 }
-.button a
-{
-    text-decoration: none;
-}
-.wrapper
-{
+
+.social-wrapper .button {
     display: flex;
     align-items: center;
-    flex-direction: row;
-}
-.social-wrapper .button
-{
-    display: inline-block;
     height: 60px;
     width: 60px;
-    margin: 0 5px;
     overflow: hidden;
     background: #ffdeef;
     border-radius: 50px;
@@ -217,141 +281,108 @@ header .navbar ul li a.active {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
     transition: all 0.3s ease-in-out;
 }
-.social-wrapper .button:hover
-{
+
+.social-wrapper .button:hover {
     width: 200px;
 }
-.social-wrapper .button .icon
-{
-    display: inline-block;
+
+.social-wrapper .button .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 60px;
-    width: 60px;
+    min-width: 60px;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 50%;
     box-sizing: border-box;
-    line-height: 60px;
     transition: all 0.3s ease-in-out;
 }
-.social-wrapper .button:nth-child(1):hover .icon
-{
-    background: #4267B2;
+.social-wrapper .button a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
-.social-wrapper .button:nth-child(2):hover .icon
-{
-    background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-.social-wrapper .button:nth-child(3):hover .icon
-{
-    background: #505255;
-}
-.social-wrapper .button:nth-child(4):hover .icon
-{
-    background:#000;
-}
-.social-wrapper .button:nth-child(5):hover .icon
-{
-    background: #ff0000;
-}
-.social-wrapper .button .icon i
-{
+
+.social-wrapper .button:nth-child(1):hover .icon { background: #4267B2; }
+.social-wrapper .button:nth-child(2):hover .icon { background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-wrapper .button:nth-child(3):hover .icon { background: #505255; }
+.social-wrapper .button:nth-child(4):hover .icon { background:#000; }
+.social-wrapper .button:nth-child(5):hover .icon { background: #ff0000; }
+
+.social-wrapper .button .icon i {
     font-size: 25px;
-    line-height: 60px;
     transition: all 0.3s ease-in-out;
+    color: #526597;
 }
-.social-wrapper .button:hover .icon i
-{
-    color: #fff;
-}
-.social-wrapper .button span
-{
+.social-wrapper .button:hover .icon i { color: #fff; }
+
+.social-wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-in-out;
-}
-.social-wrapper .button:nth-child(1) span
-{
-    color: #4267B2;
-}
-.social-wrapper .button:nth-child(2) span
-{
-    color: #E1306C;
-}
-.social-wrapper .button:nth-child(3) span
-{
-    color: #505255;
-}
-.social-wrapper .button:nth-child(4) span
-{
-    color: #000;
-}
-.social-wrapper .button:nth-child(5) span
-{
-    color: #ff0000;
-}.social-wrapper .button:nth-child(6) span
-{
-    color: #000;
+    white-space: nowrap;
 }
 
-/*footer*/
+.social-wrapper .button:nth-child(1) span { color: #4267B2; }
+.social-wrapper .button:nth-child(2) span { color: #E1306C; }
+.social-wrapper .button:nth-child(3) span { color: #505255; }
+.social-wrapper .button:nth-child(4) span { color: #000; }
+.social-wrapper .button:nth-child(5) span { color: #ff0000; }
+.social-wrapper .button:nth-child(6) span { color: #000; }
+.social-wrapper .button:nth-child(7) span { color: #000; }
 
-.footer
-{
-    position: sticky;
+
+/* --- FOOTER --- */
+.footer {
+    margin-top: auto;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #f1d5f0;
     color: #fff;
     text-align: center;
+    padding: 10px 0;
 }
 
-
-
-/*event card*/
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-  
-  :root {
+/* --- EVENT CARD (from your second code block) --- */
+/* Removing the redundant * { box-sizing: border-box; padding: 0; margin: 0; } here as it's already in global reset */
+:root {
     --purple: #526597;
     --pink: hsl(0, 59%, 94%);
     --light-bg: hsl(204, 37%, 92%);
     --light-gray-bg: hsl(0, 0%, 94%);
     --white: hsl(0, 0%, 100%);
     --dark: #526597;
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: 1.3em;
     font-weight: 700;
-  }
-  
-  
-  .description {
+}
+
+.description {
     white-space: wrap;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: inherit;
-  }
-  
-  .wrap {
+}
+
+.wrap {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the flex items horizontally */
     align-items: stretch;
     width: 80%;
     gap: 24px;
     padding: 24px;
     flex-wrap: wrap;
-  }
-  
-  .box {
+    margin: 0 auto; /* Centers the .wrap container itself */
+}
+
+.box {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
@@ -359,35 +390,35 @@ header .navbar ul li a.active {
     padding: 20px;
     background: #fff;
     border-radius: 10px;
-  }
-  
-  .box-top {
+}
+
+.box-top {
     display: flex;
     flex-direction: column;
     position: relative;
     gap: 12px;
     margin-bottom: 36px;
-  }
-  
-  .box-image {
+}
+
+.box-image {
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: 50% 20%;
-  }
-  
-  .title-flex {
+}
+
+.title-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .box-title {
+}
+
+.box-title {
     border-left: 3px solid var(--purple);
     padding-left: 12px;
-  }
-  
-  .bttn {
+}
+
+.bttn {
     display: block;
     justify-content: center;
     align-items: center;
@@ -399,165 +430,359 @@ header .navbar ul li a.active {
     box-shadow: 0px 0px 0px 1px black inset;
     transition: background 0.4s ease;
     border-radius: 10px;
-  }
-  
-  .bttn:hover {
+}
+
+.bttn:hover {
     background: var(--purple);
-  }
-  
-  .fill-one {
+}
+
+.fill-one {
     background: var(--light-bg);
-  }
-  
-  .fill-two {
+}
+
+.fill-two {
     background: var(--pink);
-  }
-  
-  /* RESPONSIVE QUERIES */
-  
-  @media (min-width: 320px) {
-    .title-flex {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: start;
-    }
-    
-  }
-  
-  @media (min-width: 460px) {
-    .title-flex {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: start;
-    }
-    
-  }
-  
-  @media (min-width: 640px) {
-    .box {
-      flex-basis: calc(50% - 12px);
-    }
-    .title-flex {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: start;
+}
+
+/* ================================================================= */
+/* MEDIA QUERIES (สำหรับ Responsive Design) */
+/* ================================================================= */
+
+/* สำหรับหน้าจอขนาดกลาง (Tablets) และ Desktop ที่แคบ */
+@media (max-width: 1024px) {
+    header {
+        padding: 3px 15px;
     }
 
-  }
-  
-  @media (min-width: 840px) {
-    .title-flex {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: start;
+    header .Izurina {
+        font-size: 2.2rem;
     }
 
-  }
-  
-  @media (min-width: 1024px) {
-    .box {
-      flex-basis: calc(33.3% - 16px);
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอขนาดนี้ */
     }
-    .title-flex {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: start;
-    }
-  }
-  
-  @media (min-width: 1100px) {
-    .box {
-      flex-basis: calc(25% - 18px);
-    }
-  }
-  
-/*System for mobile and tablets */
 
-@media (max-width: 1290px)
-{
-    .container
-    {
+    /* ปรับขนาดตัวอักษรของ Navbar บน Tablet */
+    header .navbar ul li a {
+        font-size: 1rem;
+        margin-left: 15px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 5px 10px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none;
+    }
+
+    .sec h1 {
+        font-size: 2rem;
+    }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: minmax(220px, 1fr);
+        gap: 6px;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 13 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 30%;
+    }
+
+    /* Event Card Responsive */
+    @media (min-width: 320px) {
+        .title-flex {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    @media (min-width: 460px) {
+        .title-flex {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    @media (min-width: 640px) {
+        .box {
+            flex-basis: calc(50% - 12px);
+        }
+        .title-flex {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    @media (min-width: 840px) {
+        .title-flex {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .box {
+            flex-basis: calc(33.3% - 16px);
+        }
+        .title-flex {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+/* สำหรับมือถือ (ทั่วไป max-width 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 10px;
+        /* เปลี่ยน justify-content เพื่อให้ Navbar ชิดขวา หรือเว้นช่องว่างตามต้องการ */
+        justify-content: space-between;
+    }
+
+    header .Izurina {
+        font-size: 1.8rem;
+    }
+
+    /* ทำให้ Navbar แสดงผลเสมอ */
+    header .navbar {
+        display: flex; /* Navbar แสดงผลบนหน้าจอมือถือ */
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือ */
+    header .navbar ul li a {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือ */
+        margin-left: 10px; /* ลดระยะห่างระหว่างลิงก์ */
+        padding: 4px 8px;
+    }
+
+    /* หาก Navbar บนมือถือล้น ให้พิจารณาเปลี่ยนเป็น flex-wrap หรือลด padding/margin เพิ่มเติม */
+    header .navbar ul {
+        flex-wrap: wrap; /* ทำให้ลิงก์ขึ้นบรรทัดใหม่ถ้าล้น */
+        justify-content: flex-end; /* จัดลิงก์ให้ชิดขวา */
+        margin-left: auto; /* ดัน navbar ไปทางขวา */
+    }
+
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Slider (ภาพสไลด์) */
+    .home-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .sec h1 {
+        font-size: 1.8rem;
+    }
+
+    .slider-wrapper .slide-button {
+        height: 35px;
+        width: 35px;
+        font-size: 1.5rem;
+    }
+    .slider-wrapper .slide-button#prev-slide { left: 5px; display: block; }
+    .slider-wrapper .slide-button#next-slide { right: 5px; display: block; }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: 100%;
+        gap: 0;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9 / 16;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 40%;
+    }
+
+    /* Basic Information (ตารางข้อมูล) */
+    .card {
+        padding: 10px;
+        margin: 15px auto; /* Centered */
+        max-width: calc(100% - 20px);
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    .card table td {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+
+    .card table td:first-child {
+        font-weight: bold;
+    }
+
+    /* Social Media Buttons */
+    .social-wrapper {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .social-wrapper .button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .social-wrapper .button:hover {
+        width: 150px;
+    }
+    .social-wrapper .button .icon {
+        height: 50px;
+        min-width: 50px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 20px;
+    }
+    .social-wrapper .button span {
+        font-size: 16px;
+        line-height: 50px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 10px 0;
+        font-size: 0.75em;
+    }
+}
+
+/* สำหรับมือถือที่เล็กมากๆ (max-width: 480px) */
+@media (max-width: 480px) {
+    header .Izurina {
+        font-size: 1.5rem;
+    }
+
+    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือเล็กๆ */
+    header .navbar ul li a {
+        font-size: 0.8rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือเล็กๆ */
+        margin-left: 8px;
+        padding: 3px 6px;
+    }
+
+    /* ไม่มี Hamburger icon อีกต่อไป */
+    .menu-toggle {
+        display: none;
+    }
+
+    .sec h1 {
+        font-size: 1.3rem;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 9 / 16;
+    }
+
+    .card .right-containerr h5 {
+        font-size: 1em;
+    }
+
+    .card table td {
+        font-size: 0.8em;
+        padding: 6px 0;
+    }
+
+    .social-wrapper .button {
+        height: 45px;
+        width: 45px;
+    }
+    .social-wrapper .button:hover {
+        width: 140px;
+    }
+    .social-wrapper .button .icon {
+        height: 45px;
+        min-width: 45px;
+    }
+    .social-wrapper .button .icon i {
+        font-size: 18px;
+    }
+    .social-wrapper .button span {
+        font-size: 14px;
+        line-height: 45px;
+    }
+
+    .footer {
+        padding: 8px 0;
+        font-size: 0.7em;
+    }
+}
+
+/* System for mobile and tablets (from your second code block, adjusted for consistency) */
+@media (max-width: 1290px) {
+    .container {
         max-width: 1200px;
         width: 90%;
     }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
+    .slider-wrapper .slide-button {
+        display: none !important;
     }
-    .slider-wrapper .image-list
-    {
+    .slider-wrapper .image-list {
         gap: 15px;
         margin-bottom: 15px;
     }
-    .slider-wrapper .image-list .image-item
-    {
+    .slider-wrapper .image-list .image-item {
         width: 325px;
         height: 400px;
     }
-    .slider-scrollbar .scrollbar-thumb
-    {
+    .slider-scrollbar .scrollbar-thumb {
         width: 30%;
     }
-    
 }
 
-@media (max-width: 1200px)
-{
-    .container
-    {
+@media (max-width: 1200px) {
+    .container {
         max-width: 1100px;
         width: 90%;
     }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
+    .slider-wrapper .slide-button {
+        display: none !important;
     }
-    .slider-wrapper .image-list
-    {
+    .slider-wrapper .image-list {
         gap: 10px;
         margin-bottom: 15px;
     }
-    .slider-wrapper .image-list .image-item
-    {
+    .slider-wrapper .image-list .image-item {
         width: 325px;
         height: 400px;
     }
-    .slider-scrollbar .scrollbar-thumb
-    {
+    .slider-scrollbar .scrollbar-thumb {
         width: 30%;
     }
-    
 }
-@media (max-width: 1024px)
-{
-    
-    .container
-    {
+
+@media (max-width: 1024px) { /* This media query was already present, integrating the event card responsive rules into it */
+    .container {
         max-width: 1000px;
         width: 90%;
     }
-    .slider-wrapper .slide-button
-    {
-        display: none!important;
+    .slider-wrapper .slide-button {
+        display: none !important;
     }
-    .slider-wrapper .image-list
-    {
+    .slider-wrapper .image-list {
         gap: 10px;
         margin-bottom: 15px;
     }
-    .slider-wrapper .image-list .image-item
-    {
+    .slider-wrapper .image-list .image-item {
         width: 325px;
         height: 400px;
     }
-    .slider-scrollbar .scrollbar-thumb
-    {
+    .slider-scrollbar .scrollbar-thumb {
         width: 20%;
     }
-    
+    /* Event Card Responsive (already included above in the 1024px media query) */
 }
