@@ -1,27 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
-*
-{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: 'NTR';
+
+    padding-right: 0;
+    overflow-x: hidden;
 }
 
-body
-{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    background: #c9ebe5;
-    user-select: none;
-}
-header
-{
+/* --- HEADER --- */
+header {
     position: sticky;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background: #f1d5f0;
     padding: 3px 100px;
@@ -31,8 +18,8 @@ header
     z-index: 1000;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
-header .Izurina
-{
+
+header .Izurina {
     color: #fff;
     font-weight: bolder;
     text-decoration: none;
@@ -41,43 +28,50 @@ header .Izurina
     letter-spacing: 2px;
     text-align: left;
 }
-header ul
-{
-    display: flex;
+
+/* NAVIGATION LINKS (Always visible now) */
+header .navbar ul {
+    display: flex; /* ทำให้ navbar แสดงผลเสมอ */
     justify-items: center;
     align-items: center;
 }
-header ul li
-{
+
+header .navbar ul li {
     list-style: none;
     margin-left: 20px;
 }
-header ul li a
-{
+
+header .navbar ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff;
+    color: #fff; 
     border-radius: 15px;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* ขนาดตัวอักษรเริ่มต้น */
+    transition: all 0.3s ease; /* เพิ่ม transition เพื่อความนุ่มนวล */
 }
-header ul li a:hover ,
-header ul li a.active
-{
+
+/* เปลี่ยนสีพื้นหลังเป็นสีขาว และตัวอักษรเป็น #f77df3 เมื่อ hover หรือ active */
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
     background: #fff;
-    color: #f77df3;
+    color: #f77df3; 
 }
-.container
-{
+
+/* --- REMOVED HAMBURGER MENU STYLES --- */
+/* ส่วนของ .menu-toggle และ .bar จะถูกลบออกไปทั้งหมด */
+/* --- SLIDER - ADJUSTED FOR UNIFORM IMAGE SIZE --- */
+.container {
     max-width: 1500px;
-    max-height: 1500px;
-    width: 95%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.slider-wrapper
-{
+
+.slider-wrapper {
     position: relative;
 }
-.slider-wrapper .slide-button
-{
+
+.slider-wrapper .slide-button {
     position: absolute;
     top: 50%;
     height: 50px;
@@ -85,69 +79,73 @@ header ul li a.active
     color: #fff;
     border: none;
     outline: none;
-    background: #f1d5f0;
+    background: #ffdeef;
     font-size: 2.2rem;
     cursor: pointer;
     border-radius: 50%;
     transform: translateY(-50%);
+    z-index: 1;
 }
-.slider-wrapper .slide-button:hover
-{
+
+.slider-wrapper .slide-button:hover {
     background: #fff;
     color: #ffdeef;
 }
-.slider-wrapper .slide-button#prev-slide
-{
+
+.slider-wrapper .slide-button#prev-slide {
     left: -20px;
     display: none;
 }
-.slider-wrapper .slide-button#next-slide
-{
+
+.slider-wrapper .slide-button#next-slide {
     right: -20px;
 }
-.slider-wrapper .image-list
-{
+
+.slider-wrapper .image-list {
     display: grid;
     gap: 10px;
     font-size: 0;
     margin-bottom: 30px;
     overflow-x: auto;
     scrollbar-width: none;
-    grid-template-columns: repeat(29, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 1fr);
+    scroll-snap-type: x mandatory;
 }
-.slider-wrapper .image-list::-webkit-scrollbar
-{
+
+.slider-wrapper .image-list::-webkit-scrollbar {
     display: none;
 }
-.slider-wrapper .image-list .image-item
-{
-    width: 325px;
-    height: 400px;
+
+.slider-wrapper .image-list .image-item {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    aspect-ratio: 13 / 16; /* Desktop/Tablet: สัดส่วนเดิม */
 }
-.container .slider-scrollbar
-{
+
+.container .slider-scrollbar {
     height: 24px;
     width: 100%;
     display: flex;
     align-items: center;
 }
-.slider-scrollbar .scrollbar-track
-{
+
+.slider-scrollbar .scrollbar-track {
     height: 2px;
     width: 100%;
     background: #fff;
     position: relative;
     border-radius: 4px;
-    align-items: center;
-
 }
-.slider-scrollbar:hover .scrollbar-track
-{
+
+.slider-scrollbar:hover .scrollbar-track {
     height: 4px;
 }
-.slider-scrollbar .scrollbar-thumb
-{
+
+.slider-scrollbar .scrollbar-thumb {
     position: absolute;
     height: 100%;
     width: 50%;
@@ -155,14 +153,14 @@ header ul li a.active
     border-radius: inherit;
     cursor: grab;
 }
-.slider-scrollbar .scrollbar-thumb:active
-{
+
+.slider-scrollbar .scrollbar-thumb:active {
     cursor: grabbing;
     height: 8px;
     top: -2px;
 }
-.slider-scrollbar .scrollbar-thumb::after
-{
+
+.slider-scrollbar .scrollbar-thumb::after {
     content: "";
     position: absolute;
     left: 0;
@@ -170,6 +168,7 @@ header ul li a.active
     top: -10px;
     bottom: -10px;
 }
+
 
 
 /*SocialMediaButton*/
