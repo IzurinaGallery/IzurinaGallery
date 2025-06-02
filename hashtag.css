@@ -149,7 +149,7 @@ header .navbar ul li a.active {
     font-weight: bold;
 }
 
-/* --- SLIDER - ADJUSTED FOR UNIFORM IMAGE SIZE --- */
+/* --- SLIDER - ADJUSTED FOR UNIFORM IMAGE SIZE (Restored to original sizes) --- */
 .container {
     max-width: 1500px;
     width: 100%;
@@ -184,7 +184,7 @@ header .navbar ul li a.active {
 
 .slider-wrapper .slide-button#prev-slide {
     left: -20px;
-    display: none;
+    /* display: none; */ /* Keep default visibility for larger screens */
 }
 
 .slider-wrapper .slide-button#next-slide {
@@ -193,13 +193,13 @@ header .navbar ul li a.active {
 
 .slider-wrapper .image-list {
     display: grid;
-    gap: 10px;
+    gap: 10px; /* Original gap */
     font-size: 0;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Original margin */
     overflow-x: auto;
     scrollbar-width: none;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(280px, 1fr);
+    grid-auto-columns: minmax(280px, 1fr); /* Original column size */
     scroll-snap-type: x mandatory;
 }
 
@@ -213,7 +213,7 @@ header .navbar ul li a.active {
     object-fit: cover;
     scroll-snap-align: start;
     flex-shrink: 0;
-    aspect-ratio: 13 / 16; /* Desktop/Tablet: สัดส่วนเดิม */
+    aspect-ratio: 13 / 16; /* Original aspect ratio */
 }
 
 .container .slider-scrollbar {
@@ -238,7 +238,7 @@ header .navbar ul li a.active {
 .slider-scrollbar .scrollbar-thumb {
     position: absolute;
     height: 100%;
-    width: 50%;
+    width: 50%; /* Original width */
     background: #ffdeef;
     border-radius: inherit;
     cursor: grab;
@@ -346,8 +346,7 @@ header .navbar ul li a.active {
     padding: 10px 0;
 }
 
-/* --- EVENT CARD (from your second code block) --- */
-/* Removing the redundant * { box-sizing: border-box; padding: 0; margin: 0; } here as it's already in global reset */
+/* --- EVENT CARD --- */
 :root {
     --purple: #526597;
     --pink: hsl(0, 59%, 94%);
@@ -373,13 +372,13 @@ a {
 
 .wrap {
     display: flex;
-    justify-content: center; /* Centers the flex items horizontally */
+    justify-content: center;
     align-items: stretch;
     width: 80%;
     gap: 24px;
     padding: 24px;
     flex-wrap: wrap;
-    margin: 0 auto; /* Centers the .wrap container itself */
+    margin: 0 auto;
 }
 
 .box {
@@ -541,7 +540,6 @@ a {
 @media (max-width: 768px) {
     header {
         padding: 8px 10px;
-        /* เปลี่ยน justify-content เพื่อให้ Navbar ชิดขวา หรือเว้นช่องว่างตามต้องการ */
         justify-content: space-between;
     }
 
@@ -549,27 +547,22 @@ a {
         font-size: 1.8rem;
     }
 
-    /* ทำให้ Navbar แสดงผลเสมอ */
     header .navbar {
-        display: flex; /* Navbar แสดงผลบนหน้าจอมือถือ */
+        display: flex;
     }
 
-    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือ */
     header .navbar ul li a {
-        font-size: 0.9rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือ */
-        margin-left: 10px; /* ลดระยะห่างระหว่างลิงก์ */
+        font-size: 0.9rem;
+        margin-left: 10px;
         padding: 4px 8px;
     }
 
-    /* หาก Navbar บนมือถือล้น ให้พิจารณาเปลี่ยนเป็น flex-wrap หรือลด padding/margin เพิ่มเติม */
     header .navbar ul {
-        flex-wrap: wrap; /* ทำให้ลิงก์ขึ้นบรรทัดใหม่ถ้าล้น */
-        justify-content: flex-end; /* จัดลิงก์ให้ชิดขวา */
-        margin-left: auto; /* ดัน navbar ไปทางขวา */
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-left: auto;
     }
 
-
-    /* ไม่มี Hamburger icon อีกต่อไป */
     .menu-toggle {
         display: none;
     }
@@ -611,7 +604,7 @@ a {
     /* Basic Information (ตารางข้อมูล) */
     .card {
         padding: 10px;
-        margin: 15px auto; /* Centered */
+        margin: 15px auto;
         max-width: calc(100% - 20px);
     }
 
@@ -668,14 +661,12 @@ a {
         font-size: 1.5rem;
     }
 
-    /* ปรับขนาดตัวอักษรของ Navbar บนมือถือเล็กๆ */
     header .navbar ul li a {
-        font-size: 0.8rem; /* ลดขนาดตัวอักษรลงอีกสำหรับมือถือเล็กๆ */
+        font-size: 0.8rem;
         margin-left: 8px;
         padding: 3px 6px;
     }
 
-    /* ไม่มี Hamburger icon อีกต่อไป */
     .menu-toggle {
         display: none;
     }
@@ -722,67 +713,91 @@ a {
     }
 }
 
-/* System for mobile and tablets (from your second code block, adjusted for consistency) */
+/* System for mobile and tablets (Restored to original sizes and removed previous overrides) */
 @media (max-width: 1290px) {
     .container {
-        max-width: 1200px;
-        width: 90%;
+        max-width: 1500px; /* Restored to original max-width */
+        width: 100%; /* Restored to original width */
     }
     .slider-wrapper .slide-button {
-        display: none !important;
+        display: none; /* Only hide for smaller screens as per the original first code */
     }
     .slider-wrapper .image-list {
-        gap: 15px;
-        margin-bottom: 15px;
+        gap: 10px; /* Restored to original gap */
+        margin-bottom: 30px; /* Restored to original margin */
+        grid-auto-columns: minmax(280px, 1fr); /* Restored to original column size */
     }
     .slider-wrapper .image-list .image-item {
-        width: 325px;
-        height: 400px;
+        /* width: 100%; */ /* Removed specific width, let grid-auto-columns handle it */
+        /* height: 100%; */ /* Removed specific height, let aspect-ratio handle it */
+        aspect-ratio: 13 / 16; /* Restored to original aspect ratio */
     }
     .slider-scrollbar .scrollbar-thumb {
-        width: 30%;
+        width: 50%; /* Restored to original width */
     }
 }
 
 @media (max-width: 1200px) {
     .container {
-        max-width: 1100px;
-        width: 90%;
+        max-width: 1500px; /* Restored to original max-width */
+        width: 100%; /* Restored to original width */
     }
     .slider-wrapper .slide-button {
-        display: none !important;
+        display: none;
     }
     .slider-wrapper .image-list {
         gap: 10px;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
+        grid-auto-columns: minmax(280px, 1fr);
     }
     .slider-wrapper .image-list .image-item {
-        width: 325px;
-        height: 400px;
+        aspect-ratio: 13 / 16;
     }
     .slider-scrollbar .scrollbar-thumb {
-        width: 30%;
+        width: 50%;
     }
 }
 
-@media (max-width: 1024px) { /* This media query was already present, integrating the event card responsive rules into it */
+@media (max-width: 1024px) {
     .container {
-        max-width: 1000px;
-        width: 90%;
+        max-width: 1500px; /* Restored to original max-width */
+        width: 100%; /* Restored to original width */
     }
     .slider-wrapper .slide-button {
-        display: none !important;
+        display: none !important; /* Keep this to hide buttons on tablets as per first code */
     }
     .slider-wrapper .image-list {
-        gap: 10px;
-        margin-bottom: 15px;
+        grid-auto-columns: minmax(220px, 1fr); /* Original from first code for 1024px */
+        gap: 6px; /* Original from first code for 1024px */
+        margin-bottom: 30px; /* Restore to original */
     }
     .slider-wrapper .image-list .image-item {
-        width: 325px;
-        height: 400px;
+        aspect-ratio: 13 / 16; /* Original from first code for 1024px */
     }
     .slider-scrollbar .scrollbar-thumb {
-        width: 20%;
+        width: 30%; /* Original from first code for 1024px */
     }
-    /* Event Card Responsive (already included above in the 1024px media query) */
+}
+
+/* Mobile specific overrides (from your first code) */
+@media (max-width: 768px) {
+    .slider-wrapper .slide-button#prev-slide { left: 5px; display: block; }
+    .slider-wrapper .slide-button#next-slide { right: 5px; display: block; }
+
+    .slider-wrapper .image-list {
+        grid-auto-columns: 100%;
+        gap: 0;
+    }
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 9 / 16;
+    }
+    .slider-scrollbar .scrollbar-thumb {
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper .image-list .image-item {
+        aspect-ratio: 9 / 16;
+    }
 }
