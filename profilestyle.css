@@ -338,18 +338,15 @@ header .navbar ul li a.active {
 
 /* --- FOOTER --- */
 .footer {
-    position: sticky; /* ทำให้ Footer "ติด" กับขอบล่างของหน้าจอ */
-    bottom: 0; /* กำหนดให้ติดขอบล่าง */
+    margin-top: auto;
+    left: 0;
+    bottom: 0;
     width: 100%;
     background-color: #f1d5f0;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    font-size: 1em;
-    z-index: 999; /* Z-index น้อยกว่า header แต่ยังคงอยู่เหนือเนื้อหา */
-    margin-top: auto; /* ดัน footer ไปอยู่ล่างสุดของ flex container (body) */
 }
-
 
 /* ================================================================= */
 /* MEDIA QUERIES (สำหรับ Responsive Design)          */
