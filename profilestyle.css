@@ -595,19 +595,7 @@ header .navbar ul li a.active {
     }
 }
 
-/*work*/
-
-/*
-Responsive HTML Table With Pure CSS - Web Design/UI Design
-
-Code written by:
-👨🏻‍⚕️ Coding Design (Jeet Saru)
-
-> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
-
-🌎link: www.youtube.com/codingdesign 
-*/
-
+/* --- WORK LIST (TABLE) --- */
 @media print {
     .table, .table__body {
         overflow: visible;
@@ -617,50 +605,55 @@ Code written by:
 }
 
 main.table {
-    width: 90%; /* ปรับให้กว้างขึ้นเพื่อใช้พื้นที่บนหน้าจอได้มากขึ้น */
-    max-width: 800px; /* กำหนดความกว้างสูงสุด */
-    min-height: 50vh; /* กำหนดความสูงขั้นต่ำ */
+    width: 90%; /* ความกว้างของตารางบนหน้าจอทั่วไป */
+    max-width: 800px; /* ความกว้างสูงสุดของตาราง */
+    min-height: 200px; /* ความสูงขั้นต่ำของตาราง */
+    max-height: 70vh; /* ความสูงสูงสุดของตาราง (70% ของ viewport height) */
     background-color: #fff5;
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
-    overflow: hidden;
-    margin: 20px auto; /* ทำให้ตารางอยู่ตรงกลางแนวนอน และมีระยะห่างจากด้านบน/ล่าง */
+    overflow: hidden; /* ซ่อนส่วนเกินที่อาจจะเกิดขึ้นนอกกรอบ */
+    margin: 20px auto; /* จัดให้อยู่ตรงกลางแนวนอน และมีระยะห่างจากด้านบน/ล่าง */
+    display: flex; /* ใช้ flexbox เพื่อให้ body อยู่ภายในอย่างเหมาะสม */
+    flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
 }
 
 .table__header {
     width: 100%;
-    height: 10%;
+    height: 10%; /* ความสูงของ header ภายในตาราง */
     background-color: #fff4;
     padding: .8rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0; /* ป้องกันไม่ให้ header หดตัว */
 }
 
 .table__body {
-    width: 95%;
-    max-height: calc(89% - 1.6rem);
+    width: 95%; /* ความกว้างของเนื้อหาตาราง */
+    max-height: calc(100% - 1.6rem - 10%); /* ความสูงสูงสุดที่เหลือสำหรับเนื้อหา (ลบ header และ padding) */
     background-color: #fffb;
     margin: .8rem auto;
     border-radius: .6rem;
-    overflow: auto;
-    overflow: overlay;
+    overflow-y: auto; /* ทำให้เกิด Scrollbar แนวตั้งเมื่อเนื้อหาเกิน */
+    overflow-x: hidden; /* ซ่อน Scrollbar แนวนอน ถ้ามี */
+    scrollbar-width: thin; /* สำหรับ Firefox */
+    scrollbar-color: #0004 #fff; /* สำหรับ Firefox */
 }
 
-.table__body::-webkit-scrollbar{
+.table__body::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
 }
 
-.table__body::-webkit-scrollbar-thumb{
+.table__body::-webkit-scrollbar-thumb {
     border-radius: .5rem;
     background-color: #0004;
-    visibility: hidden;
 }
 
-.table__body:hover::-webkit-scrollbar-thumb{
-    visibility: visible;
+.table__body::-webkit-scrollbar-track {
+    background: #fff;
 }
 
 table {
@@ -713,47 +706,48 @@ tbody tr:hover {
 
 @media (max-width: 1000px) {
     main.table {
-        width: 95%; /* ขยายความกว้างบนหน้าจอขนาดกลาง */
-        padding: 0 10px; /* เพิ่ม padding ด้านข้าง */
+        width: 95%;
+        max-height: 60vh; /* ลดความสูงสูงสุดบน Tablet */
     }
     td:not(:first-of-type) {
-        min-width: 10rem; /* ลด min-width ของ cell ลงเล็กน้อย */
+        min-width: 10rem;
     }
 }
 
 @media (max-width: 768px) {
     main.table {
-        width: 98%; /* ขยายความกว้างเกือบเต็มจอสำหรับมือถือ */
-        padding: 0 5px; /* ลด padding ด้านข้างสำหรับมือถือ */
+        width: 98%;
+        max-height: 50vh; /* ลดความสูงสูงสุดบนมือถือ */
+        padding: 0 5px;
     }
     thead th {
-        font-size: 0.9em; /* ลดขนาดตัวอักษร header ของตาราง */
+        font-size: 0.9em;
         padding: 0.8rem;
     }
     tbody td {
-        font-size: 0.8em; /* ลดขนาดตัวอักษรใน cell ตาราง */
+        font-size: 0.8em;
         padding: 0.8rem;
     }
-    /* ปรับขนาดของเนื้อหาในเซลล์เพื่อให้ไม่ล้น */
     td:not(:first-of-type) {
-        min-width: auto; /* ให้ width เป็น auto เพื่อให้ปรับตามเนื้อหา */
+        min-width: auto;
     }
 }
 
 @media (max-width: 480px) {
     main.table {
-        width: 100%; /* เต็มจอสำหรับมือถือขนาดเล็ก */
-        border-radius: 0; /* ลบ border-radius บนมือถือขนาดเล็กเพื่อให้ดูเต็มจอ */
-        padding: 0; /* ไม่มี padding ด้านข้าง */
+        width: 100%;
+        max-height: 40vh; /* ลดความสูงสูงสุดบนมือถือขนาดเล็ก */
+        border-radius: 0;
+        padding: 0;
     }
     thead th,
     tbody td {
-        font-size: 0.75em; /* ลดขนาดตัวอักษรลงอีก */
+        font-size: 0.75em;
         padding: 0.6rem;
     }
 }
 
-/*Timeline*/
+/* --- TIMELINE --- */
 :root {
     --white: #fff;
     --black: #323135;
@@ -764,9 +758,6 @@ tbody tr:hover {
     --timeline-gradient: rgba(206, 233, 228, 1) 0%, rgba(206, 233, 228, 1) 50%,
         rgba(206, 233, 228, 0) 100%;
 }
-
-/* .section SECTION
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .section {
     padding: 50px 0;
@@ -787,9 +778,6 @@ tbody tr:hover {
 .section h2 {
     font-size: 1.3rem;
 }
-
-/* TIMELINE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline {
     position: relative;
@@ -944,7 +932,7 @@ tbody tr:hover {
     color: #526597;
 }
 
-/* GENERAL MEDIA QUERIES
+/* GENERAL MEDIA QUERIES FOR TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 800px) {
     .timeline {
